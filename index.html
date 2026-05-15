@@ -8,150 +8,149 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy:   #0f2542;
-    --accent: #e8a12a;
-    --accent2:#f0c060;
-    --light:  #f5f3ee;
-    --light2: #ede9e0;
-    --white:  #ffffff;
-    --text:   #0f2542;
-    --muted:  #5a6e84;
-    --border: rgba(15,37,66,0.12);
-    --radius: 12px;
-    --shadow: 0 2px 16px rgba(15,37,66,0.08);
+    --navy:#0f2542; --accent:#e8a12a; --accent2:#f0c060;
+    --light:#f5f3ee; --light2:#ede9e0; --white:#ffffff;
+    --text:#0f2542; --muted:#5a6e84; --border:rgba(15,37,66,0.12);
+    --radius:12px; --shadow:0 2px 16px rgba(15,37,66,0.08);
   }
-
-  body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--text); min-height: 100vh; }
+  body { font-family:'DM Sans',sans-serif; background:var(--light); color:var(--text); min-height:100vh; }
 
   header {
-    background: var(--navy); padding: 0 2.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px; box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    background:var(--navy); padding:0 2.5rem;
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px; box-shadow:0 1px 0 rgba(255,255,255,0.06);
   }
-  .logo-area { display: flex; align-items: center; gap: 14px; }
+  .logo-area { display:flex; align-items:center; gap:14px; }
   .logo-mark {
-    width: 36px; height: 36px; background: var(--accent); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 14px; color: var(--navy); flex-shrink: 0;
+    width:36px; height:36px; background:var(--accent); border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:600; font-size:14px; color:var(--navy); flex-shrink:0;
   }
-  .logo-text { color: #fff; font-size: 15px; font-weight: 500; line-height: 1.3; }
-  .logo-text span { display: block; font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.55); margin-top: 1px; }
+  .logo-text { color:#fff; font-size:15px; font-weight:500; line-height:1.3; }
+  .logo-text span { display:block; font-size:11px; font-weight:300; color:rgba(255,255,255,0.55); margin-top:1px; }
 
   .btn {
-    display: inline-flex; align-items: center; gap: 7px;
-    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
-    padding: 7px 16px; border-radius: 8px; border: 1px solid transparent;
-    cursor: pointer; transition: all 0.18s;
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500;
+    padding:7px 16px; border-radius:8px; border:1px solid transparent;
+    cursor:pointer; transition:all 0.18s;
   }
-  .btn-ghost { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.15); }
-  .btn-ghost:hover { background: rgba(255,255,255,0.15); }
-  .btn-accent { background: var(--accent); color: var(--navy); border-color: var(--accent); font-weight: 600; }
-  .btn-accent:hover { background: var(--accent2); }
-  .btn-light { background: var(--white); color: var(--navy); border-color: var(--border); }
-  .btn-light:hover { background: var(--light2); }
-  .btn-danger { background: #fdecea; color: #a32d2d; border-color: #f0b0b0; font-size: 12px; padding: 5px 12px; }
-  .btn-danger:hover { background: #f7c1c1; }
+  .btn-ghost { background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.85); border-color:rgba(255,255,255,0.15); }
+  .btn-ghost:hover { background:rgba(255,255,255,0.15); }
+  .btn-accent { background:var(--accent); color:var(--navy); border-color:var(--accent); font-weight:600; }
+  .btn-accent:hover { background:var(--accent2); }
+  .btn-light { background:var(--white); color:var(--navy); border-color:var(--border); }
+  .btn-light:hover { background:var(--light2); }
+  .btn-danger { background:#fdecea; color:#a32d2d; border-color:#f0b0b0; font-size:12px; padding:5px 12px; }
+  .btn-danger:hover { background:#f7c1c1; }
 
-  main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
-
-  .page-title { font-size: 26px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-  .page-sub { font-size: 13px; color: var(--muted); margin-bottom: 1.75rem; }
+  main { max-width:1100px; margin:0 auto; padding:2.5rem 2rem 4rem; }
+  .page-title { font-size:26px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+  .page-sub { font-size:13px; color:var(--muted); margin-bottom:1.75rem; }
 
   .edit-banner {
-    display: none; background: #fff8e6; border: 1px solid #f5c960;
-    border-radius: var(--radius); padding: 10px 16px;
-    font-size: 13px; color: #7a5200; margin-bottom: 1.25rem;
-    align-items: center; gap: 8px;
+    display:none; background:#fff8e6; border:1px solid #f5c960;
+    border-radius:var(--radius); padding:10px 16px;
+    font-size:13px; color:#7a5200; margin-bottom:1.25rem;
+    align-items:center; gap:8px;
   }
-  .edit-banner.visible { display: flex; }
+  .edit-banner.visible { display:flex; }
 
-  .filter-bar { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  /* Aviso de descarga */
+  .download-banner {
+    display:none; background:#e6f4ea; border:1px solid #7ac98a;
+    border-radius:var(--radius); padding:14px 18px;
+    font-size:13px; color:#1a5c2a; margin-bottom:1.25rem;
+    flex-direction:column; gap:6px;
+  }
+  .download-banner.visible { display:flex; }
+  .download-banner strong { font-size:14px; }
+  .download-steps { margin:4px 0 0 12px; line-height:1.9; }
+
+  .filter-bar { display:flex; gap:8px; margin-bottom:1.5rem; flex-wrap:wrap; }
   .filter-btn {
-    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
-    padding: 5px 15px; border-radius: 99px; border: 1px solid var(--border);
-    background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s;
+    font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500;
+    padding:5px 15px; border-radius:99px; border:1px solid var(--border);
+    background:transparent; color:var(--muted); cursor:pointer; transition:all 0.15s;
   }
-  .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
-  .filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .filter-btn:hover { border-color:var(--navy); color:var(--navy); }
+  .filter-btn.active { background:var(--navy); color:#fff; border-color:var(--navy); }
 
-  #cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  #cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; }
 
   .report-card {
-    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 8px;
-    box-shadow: var(--shadow); transition: box-shadow 0.18s, transform 0.15s;
+    background:var(--white); border:1px solid var(--border); border-radius:var(--radius);
+    padding:1.1rem 1.2rem; display:flex; flex-direction:column; gap:8px;
+    box-shadow:var(--shadow); transition:box-shadow 0.18s,transform 0.15s;
   }
-  .report-card:hover { box-shadow: 0 6px 24px rgba(15,37,66,0.12); transform: translateY(-1px); }
-  .report-card.edit-mode { border-color: #378add; box-shadow: 0 0 0 2px rgba(55,138,221,0.15); }
+  .report-card:hover { box-shadow:0 6px 24px rgba(15,37,66,0.12); transform:translateY(-1px); }
+  .report-card.edit-mode { border-color:#378add; box-shadow:0 0 0 2px rgba(55,138,221,0.15); }
 
   .area-badge {
-    display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
-    padding: 3px 10px; border-radius: 99px; text-transform: uppercase; width: fit-content;
+    display:inline-block; font-size:10px; font-weight:600; letter-spacing:0.5px;
+    padding:3px 10px; border-radius:99px; text-transform:uppercase; width:fit-content;
   }
-  .card-title { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.35; }
-  .card-desc { font-size: 12px; color: var(--muted); line-height: 1.55; flex: 1; }
+  .card-title { font-size:14px; font-weight:600; color:var(--navy); line-height:1.35; }
+  .card-desc { font-size:12px; color:var(--muted); line-height:1.55; flex:1; }
   .card-open-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: #185fa5;
-    background: #e6f1fb; border: none; border-radius: 7px; padding: 6px 12px;
-    cursor: pointer; margin-top: 4px; transition: background 0.15s; text-decoration: none;
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; color:#185fa5;
+    background:#e6f1fb; border:none; border-radius:7px; padding:6px 12px;
+    cursor:pointer; margin-top:4px; transition:background 0.15s; text-decoration:none;
   }
-  .card-open-btn:hover { background: #b5d4f4; }
+  .card-open-btn:hover { background:#b5d4f4; }
 
-  .edit-label { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; display: block; }
+  .edit-label { font-size:10px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; display:block; }
   .edit-field {
-    width: 100%; font-family: 'DM Sans', sans-serif; font-size: 12px; padding: 6px 9px;
-    border: 1px solid var(--border); border-radius: 7px; background: var(--light);
-    color: var(--navy); margin-bottom: 8px; transition: border-color 0.15s;
+    width:100%; font-family:'DM Sans',sans-serif; font-size:12px; padding:6px 9px;
+    border:1px solid var(--border); border-radius:7px; background:var(--light);
+    color:var(--navy); margin-bottom:8px; transition:border-color 0.15s;
   }
-  .edit-field:focus { outline: none; border-color: #378add; background: #fff; }
-  textarea.edit-field { resize: vertical; line-height: 1.5; }
+  .edit-field:focus { outline:none; border-color:#378add; background:#fff; }
+  textarea.edit-field { resize:vertical; line-height:1.5; }
 
   .add-card-placeholder {
-    background: transparent; border: 2px dashed var(--border); border-radius: var(--radius);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 8px; padding: 1.5rem; cursor: pointer; transition: border-color 0.18s, background 0.18s;
-    color: var(--muted); font-size: 13px; min-height: 140px;
+    background:transparent; border:2px dashed var(--border); border-radius:var(--radius);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; padding:1.5rem; cursor:pointer; transition:border-color 0.18s,background 0.18s;
+    color:var(--muted); font-size:13px; min-height:140px;
   }
-  .add-card-placeholder:hover { border-color: var(--navy); background: rgba(15,37,66,0.03); color: var(--navy); }
+  .add-card-placeholder:hover { border-color:var(--navy); background:rgba(15,37,66,0.03); color:var(--navy); }
 
   .footer-row {
-    margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;
   }
-  .footer-count { font-size: 12px; color: var(--muted); }
+  .footer-count { font-size:12px; color:var(--muted); }
 
   .modal-overlay {
-    display: none; position: fixed; inset: 0;
-    background: rgba(10,20,40,0.45); z-index: 200;
-    align-items: center; justify-content: center;
+    display:none; position:fixed; inset:0;
+    background:rgba(10,20,40,0.45); z-index:200;
+    align-items:center; justify-content:center;
   }
-  .modal-overlay.open { display: flex; }
+  .modal-overlay.open { display:flex; }
   .modal {
-    background: var(--white); border-radius: 16px; padding: 1.75rem 2rem;
-    width: 90%; max-width: 420px; box-shadow: 0 24px 60px rgba(10,20,40,0.2);
-    animation: slideUp 0.2s ease;
+    background:var(--white); border-radius:16px; padding:1.75rem 2rem;
+    width:90%; max-width:420px; box-shadow:0 24px 60px rgba(10,20,40,0.2);
+    animation:slideUp 0.2s ease;
   }
-  @keyframes slideUp { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
-  .modal-title { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 1.25rem; }
-  .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 1.25rem; }
-  .modal-error { font-size: 12px; color: #a32d2d; margin-top: -4px; margin-bottom: 8px; display: none; }
-  .modal-error.visible { display: block; }
+  @keyframes slideUp { from{transform:translateY(16px);opacity:0} to{transform:none;opacity:1} }
+  .modal-title { font-size:17px; font-weight:600; color:var(--navy); margin-bottom:1.25rem; }
+  .modal-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:1.25rem; }
+  .modal-error { font-size:12px; color:#a32d2d; margin-top:-4px; margin-bottom:8px; display:none; }
+  .modal-error.visible { display:block; }
 
   .toast {
-    position: fixed; bottom: 1.5rem; right: 1.5rem;
-    background: var(--navy); color: #fff; font-size: 13px; padding: 10px 18px;
-    border-radius: 10px; opacity: 0; transform: translateY(8px);
-    transition: all 0.3s; z-index: 300; pointer-events: none;
+    position:fixed; bottom:1.5rem; right:1.5rem;
+    background:var(--navy); color:#fff; font-size:13px; padding:10px 18px;
+    border-radius:10px; opacity:0; transform:translateY(8px);
+    transition:all 0.3s; z-index:300; pointer-events:none;
   }
-  .toast.show { opacity: 1; transform: none; }
+  .toast.show { opacity:1; transform:none; }
 
-  @media (max-width: 600px) {
-    header { padding: 0 1rem; }
-    main { padding: 1.5rem 1rem 3rem; }
-    .page-title { font-size: 20px; }
+  @media(max-width:600px){
+    header{padding:0 1rem;} main{padding:1.5rem 1rem 3rem;} .page-title{font-size:20px;}
   }
 </style>
 </head>
@@ -167,7 +166,7 @@
   </div>
   <div style="display:flex;gap:8px;">
     <button class="btn btn-ghost" id="btn-edit" onclick="openPasswordModal()">✏️ Editar</button>
-    <button class="btn btn-accent" id="btn-save" onclick="saveChanges()" style="display:none;">✓ Guardar</button>
+    <button class="btn btn-accent" id="btn-save" onclick="saveChanges()" style="display:none;">⬇ Guardar y descargar</button>
     <button class="btn btn-ghost" id="btn-cancel" onclick="cancelEdit()" style="display:none;">✕ Cancelar</button>
   </div>
 </header>
@@ -177,7 +176,20 @@
   <div class="page-sub">Haz clic en cualquier reporte para abrirlo en Google Drive</div>
 
   <div class="edit-banner" id="edit-banner">
-    ✏️ <strong>Modo edición activo</strong> — modifica títulos, descripciones, áreas y links. Presiona "Guardar" al terminar.
+    ✏️ <strong>Modo edición activo</strong> — modifica los datos de cada reporte y presiona "Guardar y descargar" al terminar.
+  </div>
+
+  <div class="download-banner" id="download-banner">
+    <strong>✅ ¡Archivo descargado! Sigue estos pasos para publicar los cambios:</strong>
+    <ol class="download-steps">
+      <li>Abre <strong>github.com</strong> e ingresa a tu repositorio <strong>Portal-de-Reportes-DAAR</strong></li>
+      <li>Clic en el archivo <strong>index.html</strong></li>
+      <li>Clic en el ícono del <strong>lápiz ✏️</strong> (editar)</li>
+      <li>Selecciona todo el texto (<strong>Ctrl+A</strong>) y bórralo</li>
+      <li>Abre el archivo descargado con el Bloc de notas, selecciona todo (<strong>Ctrl+A</strong>), copia (<strong>Ctrl+C</strong>)</li>
+      <li>Pega en GitHub (<strong>Ctrl+V</strong>) y clic en <strong>"Commit changes"</strong></li>
+    </ol>
+    <span style="font-size:12px;color:#2e7d42;margin-top:2px;">En 1-2 minutos todos verán los cambios en el link.</span>
   </div>
 
   <div class="filter-bar">
@@ -244,9 +256,8 @@ const AREA_STYLE = {
   Jefaturas: { bg:'#faeeda', color:'#633806' },
 };
 
-const STORAGE_KEY = 'daar_portal_reports';
-
-const DEFAULT_REPORTS = [
+// ── REPORTES ── edita aquí los datos iniciales
+let reports = [
   { id:1, area:'Pregrado',  title:'Matrícula Pregrado',           desc:'Reporte de matrículas activas por ciclo y carrera.',            link:'https://drive.google.com' },
   { id:2, area:'Pregrado',  title:'Reservas de Aulas',            desc:'Estado de reservas y ocupación de aulas por semana.',           link:'https://drive.google.com' },
   { id:3, area:'Posgrado',  title:'Matrículas Posgrado',          desc:'Seguimiento de matrícula inicial, recurrente y extraordinaria.',link:'https://drive.google.com' },
@@ -257,48 +268,40 @@ const DEFAULT_REPORTS = [
   { id:8, area:'Posgrado',  title:'Certificaciones PBS',          desc:'Reporte de empresas prioritarias y avance de programas.',      link:'https://drive.google.com' },
 ];
 
-function loadReports() {
-  try { const s = localStorage.getItem(STORAGE_KEY); return s ? JSON.parse(s) : JSON.parse(JSON.stringify(DEFAULT_REPORTS)); }
-  catch(e) { return JSON.parse(JSON.stringify(DEFAULT_REPORTS)); }
-}
-function persistReports(data) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
-}
-
-let reports = loadReports();
 let editMode = false;
 let currentFilter = 'all';
 let editBuffer = [];
 
-function esc(s) {
+function esc(s){
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-
-function getFiltered() {
-  return currentFilter === 'all' ? reports : reports.filter(r => r.area === currentFilter);
+function escJs(s){
+  return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,'\\n');
 }
 
-function renderCards() {
+function getFiltered(){
+  return currentFilter==='all' ? reports : reports.filter(r=>r.area===currentFilter);
+}
+
+function renderCards(){
   const grid = document.getElementById('cards-grid');
   const filtered = getFiltered();
   document.getElementById('footer-count').textContent =
-    filtered.length + ' reporte' + (filtered.length !== 1 ? 's' : '') + ' · DAAR UP';
-  grid.innerHTML = '';
-
-  filtered.forEach(r => {
-    const st = AREA_STYLE[r.area] || AREA_STYLE['Jefaturas'];
+    filtered.length+' reporte'+(filtered.length!==1?'s':'')+' · DAAR UP';
+  grid.innerHTML='';
+  filtered.forEach(r=>{
+    const st = AREA_STYLE[r.area]||AREA_STYLE['Jefaturas'];
     const card = document.createElement('div');
-    card.className = 'report-card' + (editMode ? ' edit-mode' : '');
-
-    if (!editMode) {
-      card.innerHTML = `
+    card.className='report-card'+(editMode?' edit-mode':'');
+    if(!editMode){
+      card.innerHTML=`
         <span class="area-badge" style="background:${st.bg};color:${st.color};">${r.area}</span>
         <div class="card-title">${esc(r.title)}</div>
         <div class="card-desc">${esc(r.desc)}</div>
         <a class="card-open-btn" href="${esc(r.link)}" target="_blank" rel="noopener">↗ Abrir reporte</a>`;
     } else {
-      const buf = editBuffer.find(x => x.id === r.id) || r;
-      card.innerHTML = `
+      const buf=editBuffer.find(x=>x.id===r.id)||r;
+      card.innerHTML=`
         <label class="edit-label">Área</label>
         <select class="edit-field" onchange="updateBuf(${r.id},'area',this.value)">
           ${Object.keys(AREA_STYLE).map(a=>`<option value="${a}"${buf.area===a?' selected':''}>${a}</option>`).join('')}
@@ -313,118 +316,145 @@ function renderCards() {
     }
     grid.appendChild(card);
   });
-
-  if (editMode) {
-    const ph = document.createElement('div');
-    ph.className = 'add-card-placeholder';
-    ph.onclick = openAddModal;
-    ph.innerHTML = `<div style="font-size:28px;opacity:0.4;">＋</div><span>Agregar reporte</span>`;
+  if(editMode){
+    const ph=document.createElement('div');
+    ph.className='add-card-placeholder';
+    ph.onclick=openAddModal;
+    ph.innerHTML=`<div style="font-size:28px;opacity:0.4;">＋</div><span>Agregar reporte</span>`;
     grid.appendChild(ph);
   }
 }
 
-function updateBuf(id, field, val) {
-  let e = editBuffer.find(x => x.id === id);
-  if (!e) { e = {...reports.find(r => r.id === id)}; editBuffer.push(e); }
-  e[field] = val;
+function updateBuf(id,field,val){
+  let e=editBuffer.find(x=>x.id===id);
+  if(!e){e={...reports.find(r=>r.id===id)};editBuffer.push(e);}
+  e[field]=val;
 }
 
-function openPasswordModal() {
-  document.getElementById('input-password').value = '';
+// ── CONTRASEÑA ──
+function openPasswordModal(){
+  document.getElementById('input-password').value='';
   document.getElementById('password-error').classList.remove('visible');
   document.getElementById('modal-password').classList.add('open');
-  setTimeout(() => document.getElementById('input-password').focus(), 100);
+  setTimeout(()=>document.getElementById('input-password').focus(),100);
 }
-
-function checkPassword() {
-  const val = document.getElementById('input-password').value;
-  if (val === PASSWORD) {
-    closeModal('modal-password');
-    startEdit();
-  } else {
+function checkPassword(){
+  const val=document.getElementById('input-password').value;
+  if(val===PASSWORD){ closeModal('modal-password'); startEdit(); }
+  else {
     document.getElementById('password-error').classList.add('visible');
-    document.getElementById('input-password').value = '';
+    document.getElementById('input-password').value='';
     document.getElementById('input-password').focus();
   }
 }
 
-function startEdit() {
-  editMode = true;
-  editBuffer = reports.map(r => ({...r}));
-  document.getElementById('btn-edit').style.display = 'none';
-  document.getElementById('btn-save').style.display = '';
-  document.getElementById('btn-cancel').style.display = '';
-  document.getElementById('btn-add').style.display = '';
+function startEdit(){
+  editMode=true;
+  editBuffer=reports.map(r=>({...r}));
+  document.getElementById('btn-edit').style.display='none';
+  document.getElementById('btn-save').style.display='';
+  document.getElementById('btn-cancel').style.display='';
+  document.getElementById('btn-add').style.display='';
   document.getElementById('edit-banner').classList.add('visible');
+  document.getElementById('download-banner').classList.remove('visible');
   renderCards();
 }
 
-function saveChanges() {
-  editBuffer.forEach(buf => {
-    const idx = reports.findIndex(r => r.id === buf.id);
-    if (idx !== -1) reports[idx] = {...buf};
+// ── GUARDAR Y DESCARGAR ──
+function saveChanges(){
+  // aplicar buffer
+  editBuffer.forEach(buf=>{
+    const idx=reports.findIndex(r=>r.id===buf.id);
+    if(idx!==-1) reports[idx]={...buf};
   });
-  persistReports(reports);
+
+  // generar bloque JS de reportes actualizado
+  const reportsJson = reports.map(r=>
+    `  { id:${r.id}, area:'${escJs(r.area)}', title:'${escJs(r.title)}', desc:'${escJs(r.desc)}', link:'${escJs(r.link)}' }`
+  ).join(',\n');
+
+  // obtener el HTML actual y reemplazar el bloque de reportes
+  const htmlSource = document.documentElement.outerHTML;
+  const marker1 = '// ── REPORTES ── edita aquí los datos iniciales\nlet reports = [';
+  const marker2 = '];';
+  const start = htmlSource.indexOf(marker1);
+  const end   = htmlSource.indexOf(marker2, start) + marker2.length;
+
+  let newHtml;
+  if(start!==-1 && end>start){
+    newHtml = htmlSource.slice(0,start)
+      + '// ── REPORTES ── edita aquí los datos iniciales\nlet reports = [\n'
+      + reportsJson + '\n];\n'
+      + htmlSource.slice(end);
+  } else {
+    newHtml = htmlSource;
+  }
+
+  // descargar
+  const blob = new Blob([newHtml], {type:'text/html;charset=utf-8'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href=url; a.download='index.html'; a.click();
+  URL.revokeObjectURL(url);
+
   exitEdit();
-  showToast('✓ Cambios guardados correctamente');
+  document.getElementById('download-banner').classList.add('visible');
 }
 
-function cancelEdit() { reports = loadReports(); exitEdit(); }
+function cancelEdit(){ exitEdit(); }
 
-function exitEdit() {
-  editMode = false; editBuffer = [];
-  document.getElementById('btn-edit').style.display = '';
-  document.getElementById('btn-save').style.display = 'none';
-  document.getElementById('btn-cancel').style.display = 'none';
-  document.getElementById('btn-add').style.display = 'none';
+function exitEdit(){
+  editMode=false; editBuffer=[];
+  document.getElementById('btn-edit').style.display='';
+  document.getElementById('btn-save').style.display='none';
+  document.getElementById('btn-cancel').style.display='none';
+  document.getElementById('btn-add').style.display='none';
   document.getElementById('edit-banner').classList.remove('visible');
   renderCards();
 }
 
-function deleteCard(id) {
-  if (!confirm('¿Eliminar este reporte?')) return;
-  reports = reports.filter(r => r.id !== id);
-  editBuffer = editBuffer.filter(x => x.id !== id);
+function deleteCard(id){
+  if(!confirm('¿Eliminar este reporte?')) return;
+  reports=reports.filter(r=>r.id!==id);
+  editBuffer=editBuffer.filter(x=>x.id!==id);
   renderCards();
 }
 
-function filterArea(btn, area) {
-  currentFilter = area;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+function filterArea(btn,area){
+  currentFilter=area;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderCards();
 }
 
-function openAddModal() {
-  document.getElementById('new-title').value = '';
-  document.getElementById('new-desc').value = '';
-  document.getElementById('new-link').value = '';
+function openAddModal(){
+  document.getElementById('new-title').value='';
+  document.getElementById('new-desc').value='';
+  document.getElementById('new-link').value='';
   document.getElementById('modal-add').classList.add('open');
-  setTimeout(() => document.getElementById('new-title').focus(), 100);
+  setTimeout(()=>document.getElementById('new-title').focus(),100);
 }
-
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-
-function confirmAdd() {
-  const title = document.getElementById('new-title').value.trim();
-  const link  = document.getElementById('new-link').value.trim();
-  if (!title) { alert('Por favor ingresa un título.'); return; }
-  if (!link)  { alert('Por favor ingresa el link de Drive.'); return; }
-  const newR = { id: Date.now(), area: document.getElementById('new-area').value, title, desc: document.getElementById('new-desc').value.trim(), link };
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+function confirmAdd(){
+  const title=document.getElementById('new-title').value.trim();
+  const link =document.getElementById('new-link').value.trim();
+  if(!title){alert('Por favor ingresa un título.');return;}
+  if(!link) {alert('Por favor ingresa el link de Drive.');return;}
+  const newR={id:Date.now(),area:document.getElementById('new-area').value,title,desc:document.getElementById('new-desc').value.trim(),link};
   reports.push(newR);
   editBuffer.push({...newR});
   closeModal('modal-add');
   renderCards();
 }
 
-document.querySelectorAll('.modal-overlay').forEach(m => {
-  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+document.querySelectorAll('.modal-overlay').forEach(m=>{
+  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
 });
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2800);
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
 }
 
 renderCards();
