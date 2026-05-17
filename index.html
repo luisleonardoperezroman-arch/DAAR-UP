@@ -1,9 +1,11 @@
-<html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal de Reportes — DAAR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -55,7 +57,6 @@
   }
   .edit-banner.visible { display:flex; }
 
-  /* Aviso de descarga */
   .download-banner {
     display:none; background:#e6f4ea; border:1px solid #7ac98a;
     border-radius:var(--radius); padding:14px 18px;
@@ -83,7 +84,6 @@
     box-shadow:var(--shadow); transition:box-shadow 0.18s,transform 0.15s;
   }
   .report-card:hover { box-shadow:0 6px 24px rgba(15,37,66,0.12); transform:translateY(-1px); }
-  .report-card.edit-mode { border-color:#378add; box-shadow:0 0 0 2px rgba(55,138,221,0.15); }
 
   .area-badge {
     display:inline-block; font-size:10px; font-weight:600; letter-spacing:0.5px;
@@ -163,9 +163,9 @@
     </div>
   </div>
   <div style="display:flex;gap:8px;">
-    <button class="btn btn-ghost" id="btn-edit" onclick="openPasswordModal()" style="display: none;">✏️ Editar</button>
-    <button class="btn btn-accent" id="btn-save" onclick="saveChanges()" style="">⬇ Guardar y descargar</button>
-    <button class="btn btn-ghost" id="btn-cancel" onclick="cancelEdit()" style="">✕ Cancelar</button>
+    <button class="btn btn-ghost" id="btn-edit" onclick="openPasswordModal()">✏️ Editar</button>
+    <button class="btn btn-accent" id="btn-save" onclick="saveChanges()" style="display:none;">⬇ Guardar y descargar</button>
+    <button class="btn btn-ghost" id="btn-cancel" onclick="cancelEdit()" style="display:none;">✕ Cancelar</button>
   </div>
 </header>
 
@@ -173,8 +173,8 @@
   <div class="page-title">Reportes de gestión</div>
   <div class="page-sub">Haz clic en cualquier reporte para abrirlo en Google Drive</div>
 
-  <div class="edit-banner visible" id="edit-banner">
-    ✏️ <strong>Modo edición activo</strong> — modifica los datos de cada reporte y presiona "Guardar y descargar" al terminar.
+  <div class="edit-banner" id="edit-banner">
+    ✏️ <strong>Modo edición activo</strong> — modifica los datos y presiona "Guardar y descargar" al terminar.
   </div>
 
   <div class="download-banner" id="download-banner">
@@ -183,59 +183,26 @@
       <li>Abre <strong>github.com</strong> e ingresa a tu repositorio <strong>Portal-de-Reportes-DAAR</strong></li>
       <li>Clic en el archivo <strong>index.html</strong></li>
       <li>Clic en el ícono del <strong>lápiz ✏️</strong> (editar)</li>
-      <li>Selecciona todo el texto (<strong>Ctrl+A</strong>) y bórralo</li>
-      <li>Abre el archivo descargado con el Bloc de notas, selecciona todo (<strong>Ctrl+A</strong>), copia (<strong>Ctrl+C</strong>)</li>
+      <li>Selecciona todo (<strong>Ctrl+A</strong>) y borra</li>
+      <li>Abre el archivo descargado con el <strong>Bloc de notas</strong>, selecciona todo (<strong>Ctrl+A</strong>), copia (<strong>Ctrl+C</strong>)</li>
       <li>Pega en GitHub (<strong>Ctrl+V</strong>) y clic en <strong>"Commit changes"</strong></li>
     </ol>
     <span style="font-size:12px;color:#2e7d42;margin-top:2px;">En 1-2 minutos todos verán los cambios en el link.</span>
   </div>
 
   <div class="filter-bar">
-    <button class="filter-btn" onclick="filterArea(this,'all')">Todos</button>
+    <button class="filter-btn active" onclick="filterArea(this,'all')">Todos</button>
     <button class="filter-btn" onclick="filterArea(this,'Pregrado')">Pregrado</button>
-    <button class="filter-btn active" onclick="filterArea(this,'Posgrado')">Posgrado</button>
+    <button class="filter-btn" onclick="filterArea(this,'Posgrado')">Posgrado</button>
     <button class="filter-btn" onclick="filterArea(this,'Idiomas')">Idiomas</button>
     <button class="filter-btn" onclick="filterArea(this,'Jefaturas')">Jefaturas</button>
   </div>
 
-  <div id="cards-grid"><div class="report-card edit-mode">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(3,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Matrículas Posgrado - EEPBS" oninput="updateBuf(3,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(3,'desc',this.value)">Seguimiento de matrícula inicial, recurrente y extraordinaria.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1f2x_FC-cmna4S_rD78Y6foiaEz1L7HPV/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(3,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(3)">🗑 Eliminar</button></div><div class="report-card edit-mode">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(4,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Certificaciones Educación Ejecutiva" oninput="updateBuf(4,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(4,'desc',this.value)">Estado de certificaciones por subunidad.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(4,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(4)">🗑 Eliminar</button></div><div class="report-card edit-mode">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(8,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Programación de clases" oninput="updateBuf(8,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(8,'desc',this.value)">Estado de las solicitudes de programación de aulas</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1HE39C9m4n0Uq5-KFokusBeJob7py9kl7/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(8,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(8)">🗑 Eliminar</button></div><div class="add-card-placeholder"><div style="font-size:28px;opacity:0.4;">＋</div><span>Agregar reporte</span></div></div>
+  <div id="cards-grid"></div>
 
   <div class="footer-row">
-    <button class="btn btn-light" id="btn-add" onclick="openAddModal()" style="">+ Agregar reporte</button>
-    <div class="footer-count" id="footer-count">3 reportes · DAAR UP</div>
+    <button class="btn btn-light" id="btn-add" onclick="openAddModal()" style="display:none;">+ Agregar reporte</button>
+    <div class="footer-count" id="footer-count"></div>
   </div>
 </main>
 
@@ -244,7 +211,8 @@
   <div class="modal">
     <div class="modal-title">🔒 Acceso de edición</div>
     <label class="edit-label">Contraseña</label>
-    <input class="edit-field" id="input-password" type="password" placeholder="Ingresa tu contraseña" onkeydown="if(event.key==='Enter') checkPassword()">
+    <input class="edit-field" id="input-password" type="password" placeholder="Ingresa tu contraseña"
+      onkeydown="if(event.key==='Enter') checkPassword()">
     <div class="modal-error" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
     <div class="modal-actions">
       <button class="btn btn-light" onclick="closeModal('modal-password')">Cancelar</button>
@@ -264,7 +232,7 @@
     <label class="edit-label">Título</label>
     <input class="edit-field" id="new-title" type="text" placeholder="Ej. Matrícula Pregrado">
     <label class="edit-label">Descripción breve</label>
-    <textarea class="edit-field" id="new-desc" rows="2" placeholder="Ej. Reporte de matrículas activas por ciclo."></textarea>
+    <textarea class="edit-field" id="new-desc" rows="2" placeholder="Ej. Reporte de matrículas activas."></textarea>
     <label class="edit-label">Link de Google Drive</label>
     <input class="edit-field" id="new-link" type="url" placeholder="https://drive.google.com/...">
     <div class="modal-actions">
@@ -286,34 +254,27 @@ const AREA_STYLE = {
   Jefaturas: { bg:'#faeeda', color:'#633806' },
 };
 
-// ── REPORTES ── edita aquí los datos iniciales
+// ══ DATOS DE REPORTES — se reemplaza automáticamente al descargar ══
 let reports = [
-  { id:1, area:'Pregrado', title:'Matrícula Pregrado', desc:'Reporte de matrículas activas por ciclo y carrera.', link:'https://drive.google.com' },
-  { id:2, area:'Pregrado', title:'Reservas de Aulas', desc:'Estado de reservas y ocupación de aulas por semana.', link:'https://drive.google.com' },
-  { id:3, area:'Posgrado', title:'Matrículas Posgrado - EEPBS', desc:'Seguimiento de matrícula inicial, recurrente y extraordinaria.', link:'https://docs.google.com/spreadsheets/d/1f2x_FC-cmna4S_rD78Y6foiaEz1L7HPV/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
-  { id:4, area:'Posgrado', title:'Certificaciones Educación Ejecutiva', desc:'Estado de certificaciones por subunidad.', link:'https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
-  { id:5, area:'Idiomas', title:'Avance Idiomas', desc:'KPIs de progreso por nivel e idioma.', link:'https://drive.google.com' },
-  { id:6, area:'Jefaturas', title:'Horas Extra y Compensatorias', desc:'Control mensual por área y colaborador.', link:'https://docs.google.com/spreadsheets/d/1DRUPT20OTkVEfPER12QmmxgRGA7_OsJx/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
-  { id:7, area:'Jefaturas', title:'KPIs Generales DAAR', desc:'Dashboard ejecutivo con indicadores clave de gestión.', link:'https://drive.google.com' },
-  { id:8, area:'Posgrado', title:'Programación de clases', desc:'Estado de las solicitudes de programación de aulas', link:'https://docs.google.com/spreadsheets/d/1HE39C9m4n0Uq5-KFokusBeJob7py9kl7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' }
+  { id:1, area:'Pregrado',  title:'Matrícula Pregrado',           desc:'Reporte de matrículas activas por ciclo y carrera.',            link:'https://drive.google.com' },
+  { id:2, area:'Pregrado',  title:'Reservas de Aulas',            desc:'Estado de reservas y ocupación de aulas por semana.',           link:'https://drive.google.com' },
+  { id:3, area:'Posgrado',  title:'Matrículas Posgrado',          desc:'Seguimiento de matrícula inicial, recurrente y extraordinaria.',link:'https://drive.google.com' },
+  { id:4, area:'Posgrado',  title:'Certificaciones EGP',          desc:'Estado de certificaciones por empresa y subunidad.',           link:'https://drive.google.com' },
+  { id:5, area:'Idiomas',   title:'Avance Idiomas',               desc:'KPIs de progreso por nivel e idioma.',                         link:'https://drive.google.com' },
+  { id:6, area:'Jefaturas', title:'Horas Extra y Compensatorias', desc:'Control mensual por área y colaborador.',                      link:'https://drive.google.com' },
+  { id:7, area:'Jefaturas', title:'KPIs Generales DAAR',          desc:'Dashboard ejecutivo con indicadores clave de gestión.',        link:'https://drive.google.com' },
+  { id:8, area:'Posgrado',  title:'Certificaciones PBS',          desc:'Reporte de empresas prioritarias y avance de programas.',      link:'https://drive.google.com' },
 ];
-
-
+// ══ FIN DATOS ══
 
 let editMode = false;
 let currentFilter = 'all';
 let editBuffer = [];
 
-function esc(s){
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function escJs(s){
-  return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,'\\n');
-}
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escJs(s){ return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\r?\n/g,'\\n'); }
 
-function getFiltered(){
-  return currentFilter==='all' ? reports : reports.filter(r=>r.area===currentFilter);
-}
+function getFiltered(){ return currentFilter==='all' ? reports : reports.filter(r=>r.area===currentFilter); }
 
 function renderCards(){
   const grid = document.getElementById('cards-grid');
@@ -322,8 +283,8 @@ function renderCards(){
     filtered.length+' reporte'+(filtered.length!==1?'s':'')+' · DAAR UP';
   grid.innerHTML='';
   filtered.forEach(r=>{
-    const st = AREA_STYLE[r.area]||AREA_STYLE['Jefaturas'];
-    const card = document.createElement('div');
+    const st=AREA_STYLE[r.area]||AREA_STYLE['Jefaturas'];
+    const card=document.createElement('div');
     card.className='report-card'+(editMode?' edit-mode':'');
     if(!editMode){
       card.innerHTML=`
@@ -363,7 +324,6 @@ function updateBuf(id,field,val){
   e[field]=val;
 }
 
-// ── CONTRASEÑA ──
 function openPasswordModal(){
   document.getElementById('input-password').value='';
   document.getElementById('password-error').classList.remove('visible');
@@ -371,9 +331,9 @@ function openPasswordModal(){
   setTimeout(()=>document.getElementById('input-password').focus(),100);
 }
 function checkPassword(){
-  const val=document.getElementById('input-password').value;
-  if(val===PASSWORD){ closeModal('modal-password'); startEdit(); }
-  else {
+  if(document.getElementById('input-password').value===PASSWORD){
+    closeModal('modal-password'); startEdit();
+  } else {
     document.getElementById('password-error').classList.add('visible');
     document.getElementById('input-password').value='';
     document.getElementById('input-password').focus();
@@ -392,43 +352,53 @@ function startEdit(){
   renderCards();
 }
 
-// ── GUARDAR Y DESCARGAR ──
 function saveChanges(){
-  // aplicar buffer
+  // 1. Aplicar buffer a reports
   editBuffer.forEach(buf=>{
     const idx=reports.findIndex(r=>r.id===buf.id);
     if(idx!==-1) reports[idx]={...buf};
   });
 
-  // generar bloque JS de reportes actualizado
-  const reportsJson = reports.map(r=>
+  // 2. Construir bloque de datos actualizado
+  const dataBlock = reports.map(r=>
     `  { id:${r.id}, area:'${escJs(r.area)}', title:'${escJs(r.title)}', desc:'${escJs(r.desc)}', link:'${escJs(r.link)}' }`
   ).join(',\n');
 
-  // obtener el HTML actual y reemplazar el bloque de reportes
-  const htmlSource = document.documentElement.outerHTML;
-  const marker1 = '// ── REPORTES ── edita aquí los datos iniciales\nlet reports = [';
-  const marker2 = '];';
-  const start = htmlSource.indexOf(marker1);
-  const end   = htmlSource.indexOf(marker2, start) + marker2.length;
+  // 3. Leer el HTML fuente original (sin estado de edición)
+  //    Usamos la plantilla embebida en el propio script para reconstruir
+  //    el archivo limpio, reemplazando solo el bloque de datos.
+  const marker1 = '// \u2550\u2550 DATOS DE REPORTES \u2014 se reemplaza autom\u00e1ticamente al descargar \u2550\u2550\nlet reports = [';
+  const marker2 = '\n// \u2550\u2550 FIN DATOS \u2550\u2550';
 
-  let newHtml;
-  if(start!==-1 && end>start){
-    newHtml = htmlSource.slice(0,start)
-      + '// ── REPORTES ── edita aquí los datos iniciales\nlet reports = [\n'
-      + reportsJson + '\n];\n'
-      + htmlSource.slice(end);
-  } else {
-    newHtml = htmlSource;
+  let src = '<!DOCTYPE html>' + document.documentElement.outerHTML;
+
+  // Forzar vista normal en el HTML descargado:
+  // quitar clases 'visible' del edit-banner
+  src = src.replace(/(<div class="edit-banner[^"]*") id="edit-banner"/g, '$1 id="edit-banner"');
+  src = src.replace('class="edit-banner visible"', 'class="edit-banner"');
+  src = src.replace('class="download-banner visible"', 'class="download-banner"');
+
+  // Asegurar que los botones de header estén en estado normal
+  src = src.replace(/(<button[^>]+id="btn-edit"[^>]*) style="display:none;"/g, '$1');
+  src = src.replace(/(<button[^>]+id="btn-save"[^>]*) style=""/g, '$1 style="display:none;"');
+  src = src.replace(/(<button[^>]+id="btn-cancel"[^>]*) style=""/g, '$1 style="display:none;"');
+  src = src.replace(/(<button[^>]+id="btn-add"[^>]*) style=""/g, '$1 style="display:none;"');
+
+  // Reemplazar bloque de datos
+  const i1 = src.indexOf(marker1);
+  const i2 = src.indexOf(marker2, i1);
+  if(i1!==-1 && i2>i1){
+    src = src.slice(0,i1) + marker1 + '\n' + dataBlock + '\n]' + src.slice(i2);
   }
 
-  // descargar
-  const blob = new Blob([newHtml], {type:'text/html;charset=utf-8'});
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
+  // 4. Descargar
+  const blob=new Blob([src],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
   a.href=url; a.download='index.html'; a.click();
   URL.revokeObjectURL(url);
 
+  // 5. Salir del modo edición y mostrar instrucciones
   exitEdit();
   document.getElementById('download-banner').classList.add('visible');
 }
@@ -473,24 +443,15 @@ function confirmAdd(){
   if(!title){alert('Por favor ingresa un título.');return;}
   if(!link) {alert('Por favor ingresa el link de Drive.');return;}
   const newR={id:Date.now(),area:document.getElementById('new-area').value,title,desc:document.getElementById('new-desc').value.trim(),link};
-  reports.push(newR);
-  editBuffer.push({...newR});
-  closeModal('modal-add');
-  renderCards();
+  reports.push(newR); editBuffer.push({...newR});
+  closeModal('modal-add'); renderCards();
 }
 
 document.querySelectorAll('.modal-overlay').forEach(m=>{
   m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
 });
 
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2800);
-}
-
 renderCards();
 </script>
-
-
-</body></html>
+</body>
+</html>
