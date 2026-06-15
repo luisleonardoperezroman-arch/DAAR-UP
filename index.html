@@ -502,7 +502,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <button class="filter-btn" onclick="filterArea(this,'Idiomas')">Idiomas</button>
       <button class="filter-btn" onclick="filterArea(this,'Jefaturas')">Jefaturas</button>
     </div>
-    <span class="count-label" id="count-label">5 reportes</span>
+    <span class="count-label" id="count-label">6 reportes</span>
   </div>
 
   <!-- Grid -->
@@ -576,6 +576,20 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
         <button class="btn btn-danger" onclick="deleteCard(1779378921445)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 200ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(1781539674571,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="Creación de Productos EE" oninput="updateBuf(1781539674571,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(1781539674571,'desc',this.value)">Registro de creación de producto de Educación Ejecutiva</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing" oninput="updateBuf(1781539674571,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(1781539674571)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
         </button></div><div class="add-placeholder"><div class="add-plus">+</div><span>Agregar reporte</span></div></div>
 
   <!-- Footer -->
@@ -584,7 +598,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
       Agregar reporte
     </button>
-    <span class="footer-meta" id="footer-meta">5 reportes · DAAR — Universidad del Pacífico</span>
+    <span class="footer-meta" id="footer-meta">6 reportes · DAAR — Universidad del Pacífico</span>
   </div>
 </div>
 
@@ -648,7 +662,7 @@ let reports = [
   { id:1779378850656, area:'Posgrado', title:'Sustentaciones - Estatus de grupos y alumnos', desc:'Registro de solicitudes de sustentación de grupos y alumnos de maestrías.', link:'https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?usp=sharing' },
   { id:1779378921445, area:'Posgrado', title:'Sustentaciones - Programación de sustentaciones y estado de firmas de actas', desc:'Registro de las sustentaciones programadas y estados de firma de actas de sustentaciones desarrolladas.', link:'https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?usp=sharing' },
   { id:1779379931095, area:'Jefaturas', title:'DAAR HUB', desc:'Registro de personal, cumpleaños y horarios', link:'https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing' },
-  { id:1781539283959, area:'Pregrado', title:'Registro Creación de Producto EE', desc:'Registro de las creaciones de productos de Educación Ejecutiva', link:'https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing' }
+  { id:1781539674571, area:'Posgrado', title:'Creación de Productos EE', desc:'Registro de creación de producto de Educación Ejecutiva', link:'https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing' }
 ]
 // ══ FIN DATOS ══
 
