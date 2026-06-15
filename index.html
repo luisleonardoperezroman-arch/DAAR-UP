@@ -498,54 +498,82 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="filters">
       <button class="filter-btn" onclick="filterArea(this,'all')">Todos</button>
       <button class="filter-btn" onclick="filterArea(this,'Pregrado')">Pregrado</button>
-      <button class="filter-btn" onclick="filterArea(this,'Posgrado')">Posgrado</button>
+      <button class="filter-btn active" onclick="filterArea(this,'Posgrado')">Posgrado</button>
       <button class="filter-btn" onclick="filterArea(this,'Idiomas')">Idiomas</button>
-      <button class="filter-btn active" onclick="filterArea(this,'Jefaturas')">Jefaturas</button>
+      <button class="filter-btn" onclick="filterArea(this,'Jefaturas')">Jefaturas</button>
     </div>
-    <span class="count-label" id="count-label">3 reportes</span>
+    <span class="count-label" id="count-label">5 reportes</span>
   </div>
 
   <!-- Grid -->
   <div id="cards-grid"><div class="report-card edit-mode" style="animation-delay: 0ms;">
         <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(6,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
+        <select class="edit-field" onchange="updateBuf(3,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
         </select>
         <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Horas Extra y Compensatorias" oninput="updateBuf(6,'title',this.value)">
+        <input class="edit-field" type="text" value="Matrículas - EEPBS" oninput="updateBuf(3,'title',this.value)">
         <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(6,'desc',this.value)">Control mensual por área y colaborador.</textarea>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(3,'desc',this.value)">Seguimiento de matrícula inicial, recurrente y extraordinaria.</textarea>
         <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(6,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(6)">
+        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1f2x_FC-cmna4S_rD78Y6foiaEz1L7HPV/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(3,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(3)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
         </button></div><div class="report-card edit-mode" style="animation-delay: 40ms;">
         <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(7,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
+        <select class="edit-field" onchange="updateBuf(4,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
         </select>
         <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="KPIs Generales DAAR" oninput="updateBuf(7,'title',this.value)">
+        <input class="edit-field" type="text" value="Programación de Clase" oninput="updateBuf(4,'title',this.value)">
         <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(7,'desc',this.value)">Dashboard ejecutivo con indicadores clave de gestión.</textarea>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(4,'desc',this.value)">Estado de las solicitudes de programación de clase.</textarea>
         <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(7,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(7)">
+        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1HE39C9m4n0Uq5-KFokusBeJob7py9kl7/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(4,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(4)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
         </button></div><div class="report-card edit-mode" style="animation-delay: 80ms;">
         <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(1779379931095,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
+        <select class="edit-field" onchange="updateBuf(8,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
         </select>
         <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="DAAR HUB" oninput="updateBuf(1779379931095,'title',this.value)">
+        <input class="edit-field" type="text" value="Certificaciones EE" oninput="updateBuf(8,'title',this.value)">
         <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(1779379931095,'desc',this.value)">Registro de personal, cumpleaños y horarios</textarea>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(8,'desc',this.value)">Estado de certificaciones por escuela y subunidad.</textarea>
         <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing" oninput="updateBuf(1779379931095,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(1779379931095)">
+        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(8,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(8)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 120ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(1779378850656,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="Sustentaciones - Estatus de grupos y alumnos" oninput="updateBuf(1779378850656,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(1779378850656,'desc',this.value)">Registro de solicitudes de sustentación de grupos y alumnos de maestrías.</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?usp=sharing" oninput="updateBuf(1779378850656,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(1779378850656)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 160ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(1779378921445,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="Sustentaciones - Programación de sustentaciones y estado de firmas de actas" oninput="updateBuf(1779378921445,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(1779378921445,'desc',this.value)">Registro de las sustentaciones programadas y estados de firma de actas de sustentaciones desarrolladas.</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?usp=sharing" oninput="updateBuf(1779378921445,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(1779378921445)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
         </button></div><div class="add-placeholder"><div class="add-plus">+</div><span>Agregar reporte</span></div></div>
@@ -556,7 +584,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
       Agregar reporte
     </button>
-    <span class="footer-meta" id="footer-meta">3 reportes · DAAR — Universidad del Pacífico</span>
+    <span class="footer-meta" id="footer-meta">5 reportes · DAAR — Universidad del Pacífico</span>
   </div>
 </div>
 
@@ -619,7 +647,8 @@ let reports = [
   { id:8, area:'Posgrado', title:'Certificaciones EE', desc:'Estado de certificaciones por escuela y subunidad.', link:'https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
   { id:1779378850656, area:'Posgrado', title:'Sustentaciones - Estatus de grupos y alumnos', desc:'Registro de solicitudes de sustentación de grupos y alumnos de maestrías.', link:'https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?usp=sharing' },
   { id:1779378921445, area:'Posgrado', title:'Sustentaciones - Programación de sustentaciones y estado de firmas de actas', desc:'Registro de las sustentaciones programadas y estados de firma de actas de sustentaciones desarrolladas.', link:'https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?usp=sharing' },
-  { id:1779379931095, area:'Jefaturas', title:'DAAR HUB', desc:'Registro de personal, cumpleaños y horarios', link:'https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing' }
+  { id:1779379931095, area:'Jefaturas', title:'DAAR HUB', desc:'Registro de personal, cumpleaños y horarios', link:'https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing' },
+  { id:1781539283959, area:'Pregrado', title:'Registro Creación de Producto EE', desc:'Registro de las creaciones de productos de Educación Ejecutiva', link:'https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing' }
 ]
 // ══ FIN DATOS ══
 
@@ -806,6 +835,7 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{
 
 renderCards();
 </script>
+
 
 
 
