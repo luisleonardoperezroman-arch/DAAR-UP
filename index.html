@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal DAAR · UP</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #4f6ef7;
+      --text: #e8eaf6;
+      --text-muted: #8892b0;
+      --c1: #4f6ef7;
+      --c2: #10b981;
+      --c3: #f59e0b;
+      --c4: #ec4899;
+      --c5: #7c3aed;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d1b4b 0%, #1a1d27 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-brand { display: flex; align-items: center; gap: 1rem; }
+    .brand-logo {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: .75rem;
+      letter-spacing: .08em;
+      padding: .3rem .6rem;
+      border-radius: 6px;
+    }
+    .brand-title { font-size: .95rem; font-weight: 600; }
+    .brand-sub { font-size: .75rem; color: var(--text-muted); }
+
+    .hero {
+      background: linear-gradient(135deg, #0d1b4b 0%, #1a1d27 60%, #0f1117 100%);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: .6rem; }
+    .hero p { color: var(--text-muted); font-size: .95rem; }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .module-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform .2s, border-color .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--module-color);
+    }
+    .module-card:hover { transform: translateY(-4px); border-color: var(--module-color); }
+
+    .module-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      background: color-mix(in srgb, var(--module-color) 18%, transparent);
+    }
+    .module-title { font-size: 1.05rem; font-weight: 700; }
+    .module-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.4; }
+    .module-arrow {
+      margin-top: auto;
+      font-size: .78rem;
+      color: var(--module-color);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+
+    .m1 { --module-color: var(--c1); }
+    .m2 { --module-color: var(--c2); }
+    .m3 { --module-color: var(--c3); }
+    .m4 { --module-color: var(--c4); }
+    .m5 { --module-color: var(--c5); }
+
+    .soon-badge {
+      font-size: .65rem;
+      background: var(--surface2);
+      color: var(--text-muted);
+      padding: .15rem .5rem;
+      border-radius: 99px;
+      align-self: flex-start;
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: .75rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">
+    <span class="brand-logo">UP</span>
+    <div>
+      <div class="brand-title">Portal DAAR</div>
+      <div class="brand-sub">Dirección de Asuntos Académicos y Registro</div>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Portal interno DAAR</h1>
+  <p>Universidad del Pacífico · Selecciona una sección para continuar</p>
+</div>
+
+<main>
+  <div class="modules-grid">
+
+    <a href="reportes.html" class="module-card m1">
+      <div class="module-icon">📊</div>
+      <div class="module-title">Portal de Reportes</div>
+      <div class="module-desc">KPIs, métricas y reportes operativos de Pregrado, Posgrado, Idiomas y Jefaturas.</div>
+      <div class="module-arrow">Ingresar →</div>
+    </a>
+
+    <a href="equipo.html" class="module-card m2">
+      <div class="module-icon">👥</div>
+      <div class="module-title">Equipo DAAR</div>
+      <div class="module-desc">Directorio del equipo por subunidad y panel de cumpleaños del mes.</div>
+      <div class="module-arrow">Ingresar →</div>
+    </a>
+
+    <div class="module-card m3">
+      <div class="module-icon">📋</div>
+      <div class="module-title">Manuales y Procesos</div>
+      <div class="module-desc">DAAREPG03, flujos de trabajo y SLAs de cada subunidad.</div>
+      <span class="soon-badge">Próximamente</span>
+    </div>
+
+    <div class="module-card m4">
+      <div class="module-icon">🏛️</div>
+      <div class="module-title">Reservas y Formularios</div>
+      <div class="module-desc">Solicitud de ambientes y formularios operativos de EPG.</div>
+      <span class="soon-badge">Próximamente</span>
+    </div>
+
+    <div class="module-card m5">
+      <div class="module-icon">📅</div>
+      <div class="module-title">Programación Académica</div>
+      <div class="module-desc">Horarios y calendarios académicos de EPG.</div>
+      <span class="soon-badge">Próximamente</span>
+    </div>
+
+  </div>
+</main>
+
+<footer>DAAR — Universidad del Pacífico</footer>
+
+</body>
+</html>
