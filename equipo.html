@@ -1,6 +1,8 @@
-<html lang="es"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equipo — DAAR · UP</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -177,8 +179,8 @@
   <div class="modal">
     <h3>🔒 Acceso de edición</h3>
     <label>Contraseña</label>
-    <input type="password" id="inputPass" placeholder="Ingresa la contraseña" onkeydown="if(event.key==='Enter')checkPass()">
-    <div class="error-msg" id="passError" style="display: none;">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    <input type="password" id="inputPass" placeholder="Ingresa la contraseña" onkeydown="if(event.key==='Enter')checkPass()" />
+    <div class="error-msg" id="passError">Contraseña incorrecta. Inténtalo de nuevo.</div>
     <div class="modal-actions">
       <button class="btn-secondary" onclick="closePassModal()">Cancelar</button>
       <button class="btn-primary" onclick="checkPass()">Ingresar</button>
@@ -191,9 +193,9 @@
   <div class="modal" style="max-width:480px">
     <h3>✏️ Editar colaborador</h3>
     <label>Nombres y Apellidos</label>
-    <input type="text" id="editNombre">
+    <input type="text" id="editNombre" />
     <label>Ubicación / Ambiente</label>
-    <input type="text" id="editUbicacion">
+    <input type="text" id="editUbicacion" />
     <label>Subunidad</label>
     <select id="editUnidad">
       <option value="direccion">Dirección</option>
@@ -203,9 +205,9 @@
       <option value="idiomas">Idiomas</option>
     </select>
     <label>Cargo / Etiqueta</label>
-    <input type="text" id="editCargo">
+    <input type="text" id="editCargo" />
     <label>Cumpleaños (DD/MM)</label>
-    <input type="text" id="editBday" placeholder="16/06">
+    <input type="text" id="editBday" placeholder="16/06" />
     <div class="modal-actions">
       <button class="btn-danger" onclick="deletePersona()">Eliminar</button>
       <button class="btn-secondary" onclick="closeEditModal()">Cancelar</button>
@@ -219,9 +221,9 @@
   <div class="modal" style="max-width:480px">
     <h3>➕ Agregar colaborador</h3>
     <label>Nombres y Apellidos</label>
-    <input type="text" id="newNombre">
+    <input type="text" id="newNombre" />
     <label>Ubicación / Ambiente</label>
-    <input type="text" id="newUbicacion">
+    <input type="text" id="newUbicacion" />
     <label>Subunidad</label>
     <select id="newUnidad">
       <option value="pregrado">Pregrado</option>
@@ -231,9 +233,9 @@
       <option value="direccion">Dirección</option>
     </select>
     <label>Cargo / Etiqueta</label>
-    <input type="text" id="newCargo">
+    <input type="text" id="newCargo" />
     <label>Cumpleaños (DD/MM)</label>
-    <input type="text" id="newBday" placeholder="16/06">
+    <input type="text" id="newBday" placeholder="16/06" />
     <div class="modal-actions">
       <button class="btn-secondary" onclick="closeNewModal()">Cancelar</button>
       <button class="btn-primary" onclick="addPersona()">Agregar</button>
@@ -254,13 +256,13 @@
       <a href="#directorio" class="active">Directorio</a>
       <a href="#cumpleanos">Cumpleaños</a>
     </nav>
-    <button class="btn-edit" id="btnEdit" onclick="openPassModal()" style="display: none;">✏️ Editar</button>
-    <button class="btn-save" id="btnSave" onclick="saveAndDownload()" style="display: flex;">💾 Guardar y descargar</button>
-    <button class="btn-cancel-edit" id="btnCancel" onclick="cancelEdit()" style="display: block;">Cancelar</button>
+    <button class="btn-edit" id="btnEdit" onclick="openPassModal()">✏️ Editar</button>
+    <button class="btn-save" id="btnSave" onclick="saveAndDownload()">💾 Guardar y descargar</button>
+    <button class="btn-cancel-edit" id="btnCancel" onclick="cancelEdit()">Cancelar</button>
   </div>
 </header>
 
-<div class="edit-mode-bar" id="editBar" style="display: flex;">
+<div class="edit-mode-bar" id="editBar">
   ✏️ <strong>Modo edición activo</strong> — haz clic en cualquier tarjeta para editar · presiona "Guardar y descargar" al terminar.
 </div>
 
@@ -275,199 +277,7 @@
 </div>
 
 <main id="directorio">
-  <div id="directorioContent"><div class="section-header">
-      <span class="section-dot dot-direccion"></span>
-      <h2>Dirección</h2>
-      <span class="count">1 persona</span>
-      <button class="btn-primary" style="margin-left:.5rem;font-size:.72rem;padding:.2rem .6rem" onclick="openNewModal('direccion')">+ Agregar</button>
-    </div>
-    <div class="cards-grid"><div class="card edit-mode" onclick="openEditModal(0)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-direccion">GD</div>
-        <div class="card-name">Gamarra Podbrscek, Daniel Ricardo</div>
-        <div class="card-area">L1 · Ambiente 1 · Oficina principal</div>
-        <span class="badge b-direccion">Director</span>
-      </div></div><div class="section-header">
-      <span class="section-dot dot-jefatura"></span>
-      <h2>Jefaturas</h2>
-      <span class="count">3 personas</span>
-      <button class="btn-primary" style="margin-left:.5rem;font-size:.72rem;padding:.2rem .6rem" onclick="openNewModal('jefatura')">+ Agregar</button>
-    </div>
-    <div class="cards-grid"><div class="card edit-mode" onclick="openEditModal(1)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-jefatura">VK</div>
-        <div class="card-name">Vasquez Alayo, Kary Giovanna</div>
-        <div class="card-area">L1 · Ambiente 1 · Oficinas</div>
-        <span class="badge b-jefatura">Jefatura Central</span>
-      </div><div class="card edit-mode" onclick="openEditModal(2)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-jefatura">LR</div>
-        <div class="card-name">López Moscol, Rosa Lizbeth</div>
-        <div class="card-area">L1 · Ambiente 1 · Oficinas</div>
-        <span class="badge b-jefatura">Jefatura Idiomas</span>
-      </div><div class="card edit-mode" onclick="openEditModal(3)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-jefatura">GJ</div>
-        <div class="card-name">Gonzalez Palomino, Jorge Martín</div>
-        <div class="card-area">L1 · Ambiente 1 · Oficinas</div>
-        <span class="badge b-jefatura">Jefatura Posgrado</span>
-      </div></div><div class="section-header">
-      <span class="section-dot dot-pregrado"></span>
-      <h2>Pregrado</h2>
-      <span class="count">6 personas</span>
-      <button class="btn-primary" style="margin-left:.5rem;font-size:.72rem;padding:.2rem .6rem" onclick="openNewModal('pregrado')">+ Agregar</button>
-    </div>
-    <div class="cards-grid"><div class="card edit-mode" onclick="openEditModal(4)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-pregrado">BA</div>
-        <div class="card-name">Betancour Toledo, Aldo Fernando</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-pregrado">Pregrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(5)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-pregrado">FA</div>
-        <div class="card-name">Flores Zavala, Analiz Andrea</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-pregrado">Pregrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(6)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-pregrado">MP</div>
-        <div class="card-name">Motta Peña, Paola Franccesca</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-pregrado">Pregrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(7)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-pregrado">RL</div>
-        <div class="card-name">Romero Cardenas, Liz Fiorella</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-pregrado">Pregrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(8)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-pregrado">SJ</div>
-        <div class="card-name">Scarneo Del Pomar, Jennyfer Andrea</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-pregrado">Pregrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(9)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-pregrado">VL</div>
-        <div class="card-name">Villavicencio Mayhuire, Lucio César</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-pregrado">Pregrado</span>
-      </div></div><div class="section-header">
-      <span class="section-dot dot-posgrado"></span>
-      <h2>Posgrado</h2>
-      <span class="count">13 personas</span>
-      <button class="btn-primary" style="margin-left:.5rem;font-size:.72rem;padding:.2rem .6rem" onclick="openNewModal('posgrado')">+ Agregar</button>
-    </div>
-    <div class="cards-grid"><div class="card edit-mode" onclick="openEditModal(10)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">CJ</div>
-        <div class="card-name">Córdova Medina, Juan Jose</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(11)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">GJ</div>
-        <div class="card-name">Guevara Teatino, John Keler</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(12)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">HU</div>
-        <div class="card-name">Huamaní Bravo, Ursula Nataly</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(13)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">LN</div>
-        <div class="card-name">Lozada Ruiz, Nereida Josefina</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(14)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">MS</div>
-        <div class="card-name">Merino Ramirez, Stefanny</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(15)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">OA</div>
-        <div class="card-name">Ortiz Pérez, Adriana Manuela</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(16)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">PS</div>
-        <div class="card-name">Paredes Barreros, Soledad Cristina</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(17)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">PL</div>
-        <div class="card-name">Pérez Román, Luis Leonardo</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(18)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">RV</div>
-        <div class="card-name">Rubiños Lucar, Vanessa Del Rosario</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(19)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">SL</div>
-        <div class="card-name">Sánchez Silva, Leslie Sol Maria</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(20)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">SF</div>
-        <div class="card-name">Sotomayor Alvarado, Fiorella Del Carmen</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(21)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">VA</div>
-        <div class="card-name">Velasco Quispe, Ana Cristina</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div><div class="card edit-mode" onclick="openEditModal(22)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-posgrado">ZM</div>
-        <div class="card-name">Zubiate Ortiz, Marie Jamiz</div>
-        <div class="card-area">L1 · Ambiente 1</div>
-        <span class="badge b-posgrado">Posgrado</span>
-      </div></div><div class="section-header">
-      <span class="section-dot dot-idiomas"></span>
-      <h2>Idiomas</h2>
-      <span class="count">4 personas</span>
-      <button class="btn-primary" style="margin-left:.5rem;font-size:.72rem;padding:.2rem .6rem" onclick="openNewModal('idiomas')">+ Agregar</button>
-    </div>
-    <div class="cards-grid"><div class="card edit-mode" onclick="openEditModal(23)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-idiomas">GG</div>
-        <div class="card-name">Guerrero Guerreros, Gabriela Julissa</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-idiomas">Idiomas</span>
-      </div><div class="card edit-mode" onclick="openEditModal(24)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-idiomas">MK</div>
-        <div class="card-name">Moncada Alvarado, Karol Katiuska</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-idiomas">Idiomas</span>
-      </div><div class="card edit-mode" onclick="openEditModal(25)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-idiomas">PF</div>
-        <div class="card-name">Peña Calle, Fabrizzio</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-idiomas">Idiomas</span>
-      </div><div class="card edit-mode" onclick="openEditModal(26)">
-        <span class="card-edit-hint">✏️ editar</span>
-        <div class="avatar c-idiomas">QC</div>
-        <div class="card-name">Quintana Torrejon, Carla Andrea</div>
-        <div class="card-area">L1 · Ambiente 2</div>
-        <span class="badge b-idiomas">Idiomas</span>
-      </div></div></div>
+  <div id="directorioContent"></div>
   <div class="bday-section" id="cumpleanos">
     <div class="section-header" style="margin-top:1rem;">
       <span class="section-dot" style="background:#f59e0b"></span>
@@ -475,231 +285,13 @@
     </div>
     <div class="proximos-card">
       <div class="proximos-header">🔔 Próximos cumpleaños</div>
-      <div id="proximosContent"><div class="proximo-row">
-        <div class="proximo-avatar c-jefatura">VK</div>
-        <div class="proximo-info">
-          <div class="proximo-name">Vasquez Alayo, Kary Giovanna</div>
-          <div class="proximo-area">Jefatura Central · 1 Julio</div>
-        </div>
-        <div class="proximo-dias"><div class="dias-num">2</div><div class="dias-label">días</div></div>
-        <span class="pill-semana">📅 Esta semana</span>
-      </div><div class="proximo-row">
-        <div class="proximo-avatar c-jefatura">LR</div>
-        <div class="proximo-info">
-          <div class="proximo-name">López Moscol, Rosa Lizbeth</div>
-          <div class="proximo-area">Jefatura Idiomas · 2 Julio</div>
-        </div>
-        <div class="proximo-dias"><div class="dias-num">3</div><div class="dias-label">días</div></div>
-        <span class="pill-semana">📅 Esta semana</span>
-      </div><div class="proximo-row">
-        <div class="proximo-avatar c-direccion">GD</div>
-        <div class="proximo-info">
-          <div class="proximo-name">Gamarra Podbrscek, Daniel Ricardo</div>
-          <div class="proximo-area">Director · 9 Julio</div>
-        </div>
-        <div class="proximo-dias"><div class="dias-num">10</div><div class="dias-label">días</div></div>
-        <span class="pill-pronto">🔔 Próximamente</span>
-      </div><div class="proximo-row">
-        <div class="proximo-avatar c-posgrado">VA</div>
-        <div class="proximo-info">
-          <div class="proximo-name">Velasco Quispe, Ana Cristina</div>
-          <div class="proximo-area">Posgrado · 16 Julio</div>
-        </div>
-        <div class="proximo-dias"><div class="dias-num">17</div><div class="dias-label">días</div></div>
-        <span class="pill-pronto">🔔 Próximamente</span>
-      </div></div>
+      <div id="proximosContent"></div>
     </div>
-    <div class="months-grid" id="monthsContent"><div class="month-card">
-      <div class="month-header">🌟 Enero</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">22</div>
-          <div class="bday-info">
-            <div class="bday-name">Peña Calle, Fabrizzio</div>
-            <div class="bday-area">Idiomas</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">💙 Febrero</div>
-      <div class="month-body"><div class="month-empty">Sin cumpleaños</div></div></div><div class="month-card">
-      <div class="month-header">🌸 Marzo</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">3</div>
-          <div class="bday-info">
-            <div class="bday-name">Moncada Alvarado, Karol</div>
-            <div class="bday-area">Idiomas</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">28</div>
-          <div class="bday-info">
-            <div class="bday-name">Lozada Ruiz, Nereida</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">🌷 Abril</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">10</div>
-          <div class="bday-info">
-            <div class="bday-name">Ortiz Pérez, Adriana</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">29</div>
-          <div class="bday-info">
-            <div class="bday-name">Zubiate Ortiz, Marie</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">🌻 Mayo</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">5</div>
-          <div class="bday-info">
-            <div class="bday-name">Romero Cardenas, Liz</div>
-            <div class="bday-area">Pregrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">18</div>
-          <div class="bday-info">
-            <div class="bday-name">Flores Zavala, Analiz</div>
-            <div class="bday-area">Pregrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">22</div>
-          <div class="bday-info">
-            <div class="bday-name">Quintana Torrejon, Carla</div>
-            <div class="bday-area">Idiomas</div>
-          </div>
-        </div></div></div><div class="month-card" style="border-color:var(--accent)">
-      <div class="month-header">☀️ Junio ← hoy</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">12</div>
-          <div class="bday-info">
-            <div class="bday-name">Villavicencio Mayhuire, Lucio</div>
-            <div class="bday-area">Pregrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">16</div>
-          <div class="bday-info">
-            <div class="bday-name">Pérez Román, Luis</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">19</div>
-          <div class="bday-info">
-            <div class="bday-name">Rubiños Lucar, Vanessa</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">🌴 Julio</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">1</div>
-          <div class="bday-info">
-            <div class="bday-name">Vasquez Alayo, Kary</div>
-            <div class="bday-area">Jefatura Central</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">2</div>
-          <div class="bday-info">
-            <div class="bday-name">López Moscol, Rosa</div>
-            <div class="bday-area">Jefatura Idiomas</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">9</div>
-          <div class="bday-info">
-            <div class="bday-name">Gamarra Podbrscek, Daniel</div>
-            <div class="bday-area">Director</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">16</div>
-          <div class="bday-info">
-            <div class="bday-name">Velasco Quispe, Ana</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">⭐ Agosto</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">14</div>
-          <div class="bday-info">
-            <div class="bday-name">Sánchez Silva, Leslie</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">25</div>
-          <div class="bday-info">
-            <div class="bday-name">Córdova Medina, Juan</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">🍂 Septiembre</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">2</div>
-          <div class="bday-info">
-            <div class="bday-name">Guerrero Guerreros, Gabriela</div>
-            <div class="bday-area">Idiomas</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">11</div>
-          <div class="bday-info">
-            <div class="bday-name">Gonzalez Palomino, Jorge</div>
-            <div class="bday-area">Jefatura Posgrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">11</div>
-          <div class="bday-info">
-            <div class="bday-name">Merino Ramirez, Stefanny</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">🎃 Octubre</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">7</div>
-          <div class="bday-info">
-            <div class="bday-name">Motta Peña, Paola</div>
-            <div class="bday-area">Pregrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">13</div>
-          <div class="bday-info">
-            <div class="bday-name">Paredes Barreros, Soledad</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">28</div>
-          <div class="bday-info">
-            <div class="bday-name">Guevara Teatino, John</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">🍁 Noviembre</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">20</div>
-          <div class="bday-info">
-            <div class="bday-name">Huamaní Bravo, Ursula</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">30</div>
-          <div class="bday-info">
-            <div class="bday-name">Scarneo Del Pomar, Jennyfer</div>
-            <div class="bday-area">Pregrado</div>
-          </div>
-        </div></div></div><div class="month-card">
-      <div class="month-header">🎄 Diciembre</div>
-      <div class="month-body"><div class="bday-row">
-          <div class="bday-day">4</div>
-          <div class="bday-info">
-            <div class="bday-name">Betancour Toledo, Aldo</div>
-            <div class="bday-area">Pregrado</div>
-          </div>
-        </div><div class="bday-row">
-          <div class="bday-day">15</div>
-          <div class="bday-info">
-            <div class="bday-name">Sotomayor Alvarado, Fiorella</div>
-            <div class="bday-area">Posgrado</div>
-          </div>
-        </div></div></div></div>
+    <div class="months-grid" id="monthsContent"></div>
   </div>
 </main>
 
-<footer id="footerEl">27 colaboradores · DAAR — Universidad del Pacífico · Actualizado 29/06/2026</footer>
+<footer id="footerEl">27 colaboradores · DAAR — Universidad del Pacífico</footer>
 
 <script>
 const PASS = 'DAAR2026';
@@ -707,7 +299,35 @@ let editMode = false;
 let editingIdx = null;
 
 // ── DATA ──
-let personas = [{"nombre":"Gamarra Podbrscek, Daniel Ricardo","ubicacion":"L1 · Ambiente 1 · Oficina principal","unidad":"direccion","cargo":"Director","bday":"09/07"},{"nombre":"Vasquez Alayo, Kary Giovanna","ubicacion":"L1 · Ambiente 1 · Oficinas","unidad":"jefatura","cargo":"Jefatura Central","bday":"01/07"},{"nombre":"López Moscol, Rosa Lizbeth","ubicacion":"L1 · Ambiente 1 · Oficinas","unidad":"jefatura","cargo":"Jefatura Idiomas","bday":"02/07"},{"nombre":"Gonzalez Palomino, Jorge Martín","ubicacion":"L1 · Ambiente 1 · Oficinas","unidad":"jefatura","cargo":"Jefatura Posgrado","bday":"11/09"},{"nombre":"Betancour Toledo, Aldo Fernando","ubicacion":"L1 · Ambiente 2","unidad":"pregrado","cargo":"Pregrado","bday":"04/12"},{"nombre":"Flores Zavala, Analiz Andrea","ubicacion":"L1 · Ambiente 2","unidad":"pregrado","cargo":"Pregrado","bday":"18/05"},{"nombre":"Motta Peña, Paola Franccesca","ubicacion":"L1 · Ambiente 2","unidad":"pregrado","cargo":"Pregrado","bday":"07/10"},{"nombre":"Romero Cardenas, Liz Fiorella","ubicacion":"L1 · Ambiente 1","unidad":"pregrado","cargo":"Pregrado","bday":"05/05"},{"nombre":"Scarneo Del Pomar, Jennyfer Andrea","ubicacion":"L1 · Ambiente 2","unidad":"pregrado","cargo":"Pregrado","bday":"30/11"},{"nombre":"Villavicencio Mayhuire, Lucio César","ubicacion":"L1 · Ambiente 2","unidad":"pregrado","cargo":"Pregrado","bday":"12/06"},{"nombre":"Córdova Medina, Juan Jose","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"25/08"},{"nombre":"Guevara Teatino, John Keler","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"28/10"},{"nombre":"Huamaní Bravo, Ursula Nataly","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"20/11"},{"nombre":"Lozada Ruiz, Nereida Josefina","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"28/03"},{"nombre":"Merino Ramirez, Stefanny","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"11/09"},{"nombre":"Ortiz Pérez, Adriana Manuela","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"10/04"},{"nombre":"Paredes Barreros, Soledad Cristina","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"13/10"},{"nombre":"Pérez Román, Luis Leonardo","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"16/06"},{"nombre":"Rubiños Lucar, Vanessa Del Rosario","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"19/06"},{"nombre":"Sánchez Silva, Leslie Sol Maria","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"14/08"},{"nombre":"Sotomayor Alvarado, Fiorella Del Carmen","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"15/12"},{"nombre":"Velasco Quispe, Ana Cristina","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"16/07"},{"nombre":"Zubiate Ortiz, Marie Jamiz","ubicacion":"L1 · Ambiente 1","unidad":"posgrado","cargo":"Posgrado","bday":"29/04"},{"nombre":"Guerrero Guerreros, Gabriela Julissa","ubicacion":"L1 · Ambiente 2","unidad":"idiomas","cargo":"Idiomas","bday":"02/09"},{"nombre":"Moncada Alvarado, Karol Katiuska","ubicacion":"L1 · Ambiente 2","unidad":"idiomas","cargo":"Idiomas","bday":"03/03"},{"nombre":"Peña Calle, Fabrizzio","ubicacion":"L1 · Ambiente 2","unidad":"idiomas","cargo":"Idiomas","bday":"22/01"},{"nombre":"Quintana Torrejon, Carla Andrea","ubicacion":"L1 · Ambiente 2","unidad":"idiomas","cargo":"Idiomas","bday":"22/05"}];
+let personas = [
+  { nombre: 'Gamarra Podbrscek, Daniel Ricardo', ubicacion: 'L1 · Ambiente 1 · Oficinas', unidad: 'direccion', cargo: 'Director', bday: '09/07' },
+  { nombre: 'Vasquez Alayo, Kary Giovanna', ubicacion: 'L1 · Ambiente 1 · Oficinas', unidad: 'jefatura', cargo: 'Jefatura Central', bday: '01/07' },
+  { nombre: 'Lopez Moscol, Rosa Lizbeth', ubicacion: 'L1 · Ambiente 1 · Oficinas', unidad: 'jefatura', cargo: 'Jefatura Idiomas', bday: '02/07' },
+  { nombre: 'Gonzalez Palomino, Jorge Martin', ubicacion: 'L1 · Ambiente 1 · Oficinas', unidad: 'jefatura', cargo: 'Jefatura Posgrado', bday: '11/09' },
+  { nombre: 'Betancour Toledo, Aldo Fernando', ubicacion: 'L1 · Ambiente 2', unidad: 'pregrado', cargo: 'Pregrado', bday: '04/12' },
+  { nombre: 'Flores Zavala, Analiz Andrea', ubicacion: 'L1 · Ambiente 2', unidad: 'pregrado', cargo: 'Pregrado', bday: '18/05' },
+  { nombre: 'Motta Peña, Paola Franccesca', ubicacion: 'L1 · Ambiente 2', unidad: 'pregrado', cargo: 'Pregrado', bday: '07/10' },
+  { nombre: 'Romero Cardenas, Liz Fiorella', ubicacion: 'L1 · Ambiente 1', unidad: 'pregrado', cargo: 'Pregrado', bday: '05/05' },
+  { nombre: 'Scarneo Del Pomar, Jennyfer Andrea', ubicacion: 'L1 · Ambiente 2', unidad: 'pregrado', cargo: 'Pregrado', bday: '30/11' },
+  { nombre: 'Villavicencio Mayhuire, Lucio Cesar', ubicacion: 'L1 · Ambiente 2', unidad: 'pregrado', cargo: 'Pregrado', bday: '12/06' },
+  { nombre: 'Cordova Medina, Juan Jose', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '25/08' },
+  { nombre: 'Guevara Teatino, John Keler', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '28/10' },
+  { nombre: 'Huamani Bravo, Ursula Nataly', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '20/11' },
+  { nombre: 'Lozada Ruiz, Nereida Josefina', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '28/03' },
+  { nombre: 'Merino Ramirez, Stefanny', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '11/09' },
+  { nombre: 'Ortiz Perez, Adriana Manuela', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '10/04' },
+  { nombre: 'Paredes Barreros, Soledad Cristina', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '13/10' },
+  { nombre: 'Perez Roman, Luis Leonardo', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '16/06' },
+  { nombre: 'Rubiños Lucar, Vanessa Del Rosario', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '19/06' },
+  { nombre: 'Sanchez Silva, Leslie Sol Maria', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '14/08' },
+  { nombre: 'Sotomayor Alvarado, Fiorella Del Carmen', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '15/12' },
+  { nombre: 'Velasco Quispe, Ana Cristina', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '16/07' },
+  { nombre: 'Zubiate Ortiz, Marie Jamiz', ubicacion: 'L1 · Ambiente 1', unidad: 'posgrado', cargo: 'Posgrado', bday: '29/04' },
+  { nombre: 'Guerrero Guerreros, Gabriela Julissa', ubicacion: 'L1 · Ambiente 2', unidad: 'idiomas', cargo: 'Idiomas', bday: '02/09' },
+  { nombre: 'Moncada Alvarado, Karol Katiuska', ubicacion: 'L1 · Ambiente 2', unidad: 'idiomas', cargo: 'Idiomas', bday: '03/03' },
+  { nombre: 'Peña Calle, Fabrizzio', ubicacion: 'L1 · Ambiente 2', unidad: 'idiomas', cargo: 'Idiomas', bday: '22/01' },
+  { nombre: 'Quintana Torrejon, Carla Andrea', ubicacion: 'L1 · Ambiente 2', unidad: 'idiomas', cargo: 'Idiomas', bday: '22/05' },
+];
 
 const UNIDAD_CONFIG = {
   direccion: { label: 'Dirección', dot: 'dot-direccion', avatar: 'c-direccion', badge: 'b-direccion' },
@@ -859,7 +479,7 @@ function checkPass() {
 
 // ── EDIT MODE ──
 function enableEditMode() {
-  editMode = false;
+  editMode = true;
   document.getElementById('btnEdit').style.display = 'none';
   document.getElementById('btnSave').style.display = 'flex';
   document.getElementById('btnCancel').style.display = 'block';
@@ -937,27 +557,31 @@ function saveAndDownload() {
   const now = new Date();
   const fechaStr = `${now.getDate().toString().padStart(2,'0')}/${(now.getMonth()+1).toString().padStart(2,'0')}/${now.getFullYear()}`;
 
-  // Build personas JSON for embedding in new file
   const dataJSON = JSON.stringify(personas);
 
-  // Get current HTML and inject updated data
-  let html = document.documentElement.outerHTML;
+  // Reset UI to view mode BEFORE capturing the HTML, so inline styles don't get baked in
+  editMode = false;
+  document.getElementById('btnEdit').removeAttribute('style');
+  document.getElementById('btnSave').removeAttribute('style');
+  document.getElementById('btnCancel').removeAttribute('style');
+  document.getElementById('editBar').removeAttribute('style');
+  render();
 
-  // Replace personas array in the script
+  let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+  // Replace personas array in the script with updated data
   html = html.replace(/let personas = \[[\s\S]*?\];/, `let personas = ${dataJSON};`);
 
   // Update footer date
-  html = html.replace(/Actualizado [^<·]+/, `Actualizado ${fechaStr}`);
-
-  // Remove edit mode state (reset to view mode)
-  html = html.replace(/editMode = true/, 'editMode = false');
+  html = html.replace(/DAAR — Universidad del Pacífico[^<]*/, `DAAR — Universidad del Pacífico · Actualizado ${fechaStr}`);
 
   const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'equipo-daar.html';
+  a.download = 'equipo.html';
   a.click();
   URL.revokeObjectURL(a.href);
+
   cancelEdit();
 }
 
@@ -969,6 +593,5 @@ document.getElementById('overlayNew').addEventListener('click', e => { if(e.targ
 // Init
 render();
 </script>
-
-
-</body></html>
+</body>
+</html>
