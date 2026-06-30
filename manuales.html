@@ -321,7 +321,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <span class="header-tag">DAAR</span>
   </div>
   <div style="display:flex;gap:8px;">
-    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()">
+    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()" style="">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
       Editar
     </button>
@@ -374,7 +374,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <button class="filter-btn active" onclick="filterArea(this,'Posgrado')">Posgrado</button>
       <button class="filter-btn" onclick="filterArea(this,'Idiomas')">Idiomas</button>
     </div>
-    <span class="count-label" id="count-label">4 procesos</span>
+    <span class="count-label" id="count-label">5 procesos</span>
   </div>
 
   <!-- Grupos por subunidad -->
@@ -382,7 +382,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="area-group-header">
       <span class="area-dot" style="background:#6B3FD6"></span>
       <span class="area-group-title">Programas y Cursos</span>
-      <span class="area-group-count">2 procesos</span>
+      <span class="area-group-count">3 procesos</span>
     </div>
     <div class="process-grid"><div class="process-card" style="animation-delay: 0ms;"><div class="process-head">
     <div class="process-head-left">
@@ -439,7 +439,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <div class="process-title-row">
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;">Posgrado</span>
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;padding:3px 10px;border-radius:99px;opacity:0.75;">Programas y Cursos</span>
-        <span class="resource-count-badge">3 recursos</span>
+        <span class="resource-count-badge">4 recursos</span>
       </div>
       <div class="process-title">Creación de Productos</div>
       <div class="process-desc">Creación de los diversos productos de programas y cursos correspondientes a las escuelas de PBS y EGP</div>
@@ -465,7 +465,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
               <div class="resource-item">
                 <a class="resource-item-link" href="" target="_blank" rel="noopener">
                   <span class="resource-icon">🖥️</span>
-                  <span>Aplicativo Ellucian</span>
+                  <span>Aplicativo Ellucian (aplicativo local, sin enlace)</span>
                 </a>
                 <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </div>
@@ -476,9 +476,91 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
           <div class="resource-list">
             
               <div class="resource-item">
+                <a class="resource-item-link" href="https://autoservicio2.up.edu.pe/" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>Autoservicio - Habilitar currículum</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
                 <a class="resource-item-link" href="https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing" target="_blank" rel="noopener">
                   <span class="resource-icon">🔗</span>
                   <span>Reporte - Registro de productos</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+          </div>
+        </div></div></div></div><div class="process-card" style="animation-delay: 60ms;"><div class="process-head">
+    <div class="process-head-left">
+      <div class="process-title-row">
+        <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;">Posgrado</span>
+        <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;padding:3px 10px;border-radius:99px;opacity:0.75;">Programas y Cursos</span>
+        <span class="resource-count-badge">6 recursos</span>
+      </div>
+      <div class="process-title">Certificación</div>
+      <div class="process-desc">Proceso de Certificación de programas y cursos de las escuelas de EGP y PBS.</div>
+    </div>
+    <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </div><div class="process-body"><div class="process-body-inner"><div class="resource-type-block">
+          <div class="resource-type-label">📘 Manual del proceso</div>
+          <div class="resource-list">
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://drive.google.com/file/d/1DWxk_-QCUrgoreBtA7Nf4TJk68uk27Aq/view?usp=drive_link" target="_blank" rel="noopener">
+                  <span class="resource-icon">📘</span>
+                  <span>Manual proceso de Certificación</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+          </div>
+        </div><div class="resource-type-block">
+          <div class="resource-type-label">🖥️ Plataformas</div>
+          <div class="resource-list">
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://generador-etramites.up.edu.pe/" target="_blank" rel="noopener">
+                  <span class="resource-icon">🖥️</span>
+                  <span>Generador - E-tramites</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://www.esignabox.com/#homelogin" target="_blank" rel="noopener">
+                  <span class="resource-icon">🖥️</span>
+                  <span>E-Signabox</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href=" https://universidadpacifico.administracionelectronica.net/PortalEmpleado/" target="_blank" rel="noopener">
+                  <span class="resource-icon">🖥️</span>
+                  <span>Portal del Empleado</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+          </div>
+        </div><div class="resource-type-block">
+          <div class="resource-type-label">🔗 Otros recursos</div>
+          <div class="resource-list">
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>Reporte - Registro de Certificaciones</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://drive.google.com/drive/u/0/folders/1jsdty9osaJ7s7aaCKvKpASGBf_hXkMH1" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>Drive - Registro Certificación</span>
                 </a>
                 <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </div>
@@ -491,7 +573,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <span class="area-group-title">Maestrías</span>
       <span class="area-group-count">2 procesos</span>
     </div>
-    <div class="process-grid"><div class="process-card" style="animation-delay: 60ms;"><div class="process-head">
+    <div class="process-grid"><div class="process-card" style="animation-delay: 90ms;"><div class="process-head">
     <div class="process-head-left">
       <div class="process-title-row">
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;">Posgrado</span>
@@ -515,7 +597,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
               </div>
             
           </div>
-        </div></div></div></div><div class="process-card" style="animation-delay: 90ms;"><div class="process-head">
+        </div></div></div></div><div class="process-card" style="animation-delay: 120ms;"><div class="process-head">
     <div class="process-head-left">
       <div class="process-title-row">
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;">Posgrado</span>
@@ -535,7 +617,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
       Agregar proceso
     </button>
-    <span class="footer-meta" id="footer-meta">4 procesos · DAAR — Universidad del Pacífico</span>
+    <span class="footer-meta" id="footer-meta">5 procesos · DAAR — Universidad del Pacífico</span>
   </div>
 </div>
 
@@ -563,7 +645,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     </select>
     <div id="new-process-subarea-wrap" style="">
       <label class="edit-label">Sub-grupo</label>
-      <select class="edit-field" id="new-process-subarea"><option value="Programas y Cursos">Programas y Cursos</option><option value="Maestrías" selected="">Maestrías</option></select>
+      <select class="edit-field" id="new-process-subarea"><option value="Programas y Cursos" selected="">Programas y Cursos</option><option value="Maestrías">Maestrías</option></select>
     </div>
     <label class="edit-label">Nombre del proceso</label>
     <input class="edit-field" id="new-process-title" type="text" placeholder="Ej. Matrícula">
@@ -624,11 +706,20 @@ let processes = [
   ]},
   { id:1782783157461, area:'Posgrado', subarea:'Programas y Cursos', title:'Creación de Productos', desc:'Creación de los diversos productos de programas y cursos correspondientes a las escuelas de PBS y EGP', open:false, resources:[
     { type:'manual', title:'Manual proceso de creación de productos', link:'https://drive.google.com/file/d/1U6XccOywV9AJpOk5KWw7Q0qsrCIdv-6Z/view?usp=drive_link' },
-    { type:'plataforma', title:'Aplicativo Ellucian', link:'' },
+    { type:'plataforma', title:'Aplicativo Ellucian (aplicativo local, sin enlace)', link:'' },
+    { type:'otro', title:'Autoservicio - Habilitar currículum', link:'https://autoservicio2.up.edu.pe/' },
     { type:'otro', title:'Reporte - Registro de productos', link:'https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing' }
   ]},
   { id:1782783206561, area:'Posgrado', subarea:'Maestrías', title:'Grados', desc:'Proceso de registro y otorgamiento de grado de maestrías para las escuelas de EGP y PBS', open:false, resources:[
 
+  ]},
+  { id:1782833308895, area:'Posgrado', subarea:'Programas y Cursos', title:'Certificación', desc:'Proceso de Certificación de programas y cursos de las escuelas de EGP y PBS.', open:false, resources:[
+    { type:'manual', title:'Manual proceso de Certificación', link:'https://drive.google.com/file/d/1DWxk_-QCUrgoreBtA7Nf4TJk68uk27Aq/view?usp=drive_link' },
+    { type:'plataforma', title:'Generador - E-tramites', link:'https://generador-etramites.up.edu.pe/' },
+    { type:'plataforma', title:'E-Signabox', link:'https://www.esignabox.com/#homelogin' },
+    { type:'plataforma', title:'Portal del Empleado', link:' https://universidadpacifico.administracionelectronica.net/PortalEmpleado/' },
+    { type:'otro', title:'Reporte - Registro de Certificaciones', link:'https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
+    { type:'otro', title:'Drive - Registro Certificación', link:'https://drive.google.com/drive/u/0/folders/1jsdty9osaJ7s7aaCKvKpASGBf_hXkMH1' }
   ]}
 ]
 // ══ FIN DATOS ══
@@ -1016,6 +1107,7 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{
 ensureRids(processes);
 renderGroups();
 </script>
+
 
 
 
