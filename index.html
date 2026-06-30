@@ -8,18 +8,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0f1117;
-      --surface: #1a1d27;
-      --surface2: #22263a;
-      --border: #2e3350;
-      --accent: #4f6ef7;
-      --text: #e8eaf6;
-      --text-muted: #8892b0;
-      --c1: #4f6ef7;
-      --c2: #10b981;
-      --c3: #f59e0b;
-      --c4: #ec4899;
-      --c5: #7c3aed;
+      --up-blue: #1A6BB5;
+      --up-dark: #1A3A6B;
+      --up-light: #E8F0F9;
+      --up-gold: #F5A623;
+      --bg: #f0f4f8;
+      --surface: #ffffff;
+      --border: #d0dce8;
+      --text: #1A3A6B;
+      --text-muted: #5a7a99;
     }
 
     body {
@@ -29,120 +26,152 @@
       min-height: 100vh;
     }
 
+    /* HEADER */
     header {
-      background: linear-gradient(135deg, #0d1b4b 0%, #1a1d27 100%);
-      border-bottom: 1px solid var(--border);
+      background: var(--up-blue);
       padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 56px;
+      height: 64px;
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
     }
     .header-brand { display: flex; align-items: center; gap: 1rem; }
     .brand-logo {
-      background: var(--accent);
-      color: #fff;
-      font-weight: 800;
-      font-size: .75rem;
-      letter-spacing: .08em;
-      padding: .3rem .6rem;
+      background: #fff;
+      color: var(--up-blue);
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: .06em;
+      padding: .35rem .65rem;
       border-radius: 6px;
     }
-    .brand-title { font-size: .95rem; font-weight: 600; }
-    .brand-sub { font-size: .75rem; color: var(--text-muted); }
+    .brand-title { font-size: 1rem; font-weight: 700; color: #fff; }
+    .brand-sub { font-size: .75rem; color: rgba(255,255,255,.8); }
 
+    /* HERO */
     .hero {
-      background: linear-gradient(135deg, #0d1b4b 0%, #1a1d27 60%, #0f1117 100%);
-      padding: 4rem 2rem 3rem;
+      background: linear-gradient(135deg, var(--up-dark) 0%, var(--up-blue) 100%);
+      padding: 3.5rem 2rem 3rem;
       text-align: center;
-      border-bottom: 1px solid var(--border);
     }
-    .hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: .6rem; }
-    .hero p { color: var(--text-muted); font-size: .95rem; }
+    .hero h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: .5rem; }
+    .hero p { color: rgba(255,255,255,.8); font-size: .95rem; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--up-gold);
+      color: var(--up-dark);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .25rem .75rem;
+      border-radius: 99px;
+      letter-spacing: .05em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
 
+    /* MAIN */
     main {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 2.5rem 2rem;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
     }
 
     .modules-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.25rem;
+      margin-bottom: 2rem;
     }
 
     .module-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.75rem 1.5rem;
+      border-radius: 12px;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: .75rem;
+      gap: .65rem;
       text-decoration: none;
       color: var(--text);
-      transition: transform .2s, border-color .2s;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
       position: relative;
       overflow: hidden;
     }
-    .module-card::before {
+    .module-card::after {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 4px; height: 100%;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
       background: var(--module-color);
+      transform: scaleX(0);
+      transition: transform .2s;
+      transform-origin: left;
     }
-    .module-card:hover { transform: translateY(-4px); border-color: var(--module-color); }
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(26,107,181,.15);
+      border-color: var(--module-color);
+    }
+    .module-card:hover::after { transform: scaleX(1); }
+
+    .module-card.disabled {
+      opacity: .6;
+      cursor: default;
+      pointer-events: none;
+    }
 
     .module-icon {
       width: 44px; height: 44px;
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem;
-      background: color-mix(in srgb, var(--module-color) 18%, transparent);
+      background: color-mix(in srgb, var(--module-color) 12%, white);
     }
-    .module-title { font-size: 1.05rem; font-weight: 700; }
-    .module-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.4; }
+    .module-title { font-size: 1rem; font-weight: 700; color: var(--up-dark); }
+    .module-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.5; }
     .module-arrow {
       margin-top: auto;
       font-size: .78rem;
       color: var(--module-color);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: .3rem;
+      font-weight: 700;
     }
-
-    .m1 { --module-color: var(--c1); }
-    .m2 { --module-color: var(--c2); }
-    .m3 { --module-color: var(--c3); }
-    .m4 { --module-color: var(--c4); }
-    .m5 { --module-color: var(--c5); }
-
     .soon-badge {
+      display: inline-block;
       font-size: .65rem;
-      background: var(--surface2);
+      background: var(--up-light);
       color: var(--text-muted);
-      padding: .15rem .5rem;
+      padding: .2rem .55rem;
       border-radius: 99px;
-      align-self: flex-start;
       font-weight: 600;
-      letter-spacing: .03em;
+      align-self: flex-start;
     }
+
+    .m1 { --module-color: #1A6BB5; }
+    .m2 { --module-color: #2E8B57; }
+    .m3 { --module-color: #F5A623; }
+    .m4 { --module-color: #e05c5c; }
+    .m5 { --module-color: #7c3aed; }
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1.5rem;
       color: var(--text-muted);
       font-size: .75rem;
       border-top: 1px solid var(--border);
-      margin-top: 1rem;
+      background: var(--surface);
     }
   </style>
 </head>
@@ -159,11 +188,13 @@
 </header>
 
 <div class="hero">
-  <h1>Portal interno DAAR</h1>
-  <p>Universidad del Pacífico · Selecciona una sección para continuar</p>
+  <div class="hero-badge">Portal interno</div>
+  <h1>Portal DAAR · Universidad del Pacífico</h1>
+  <p>Selecciona una sección para continuar</p>
 </div>
 
 <main>
+  <div class="section-label">Módulos disponibles</div>
   <div class="modules-grid">
 
     <a href="reportes.html" class="module-card m1">
@@ -180,21 +211,21 @@
       <div class="module-arrow">Ingresar →</div>
     </a>
 
-    <div class="module-card m3">
+    <div class="module-card m3 disabled">
       <div class="module-icon">📋</div>
       <div class="module-title">Manuales y Procesos</div>
       <div class="module-desc">DAAREPG03, flujos de trabajo y SLAs de cada subunidad.</div>
       <span class="soon-badge">Próximamente</span>
     </div>
 
-    <div class="module-card m4">
+    <div class="module-card m4 disabled">
       <div class="module-icon">🏛️</div>
       <div class="module-title">Reservas y Formularios</div>
       <div class="module-desc">Solicitud de ambientes y formularios operativos de EPG.</div>
       <span class="soon-badge">Próximamente</span>
     </div>
 
-    <div class="module-card m5">
+    <div class="module-card m5 disabled">
       <div class="module-icon">📅</div>
       <div class="module-title">Programación Académica</div>
       <div class="module-desc">Horarios y calendarios académicos de EPG.</div>
@@ -204,7 +235,7 @@
   </div>
 </main>
 
-<footer>DAAR — Universidad del Pacífico</footer>
+<footer>DAAR · Universidad del Pacífico</footer>
 
 </body>
 </html>
