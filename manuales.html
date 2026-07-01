@@ -321,7 +321,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <span class="header-tag">DAAR</span>
   </div>
   <div style="display:flex;gap:8px;">
-    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()" style="">
+    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
       Editar
     </button>
@@ -578,7 +578,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <div class="process-title-row">
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;">Posgrado</span>
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;padding:3px 10px;border-radius:99px;opacity:0.75;">Maestrías</span>
-        <span class="resource-count-badge">5 recursos</span>
+        <span class="resource-count-badge">8 recursos</span>
       </div>
       <div class="process-title">Sustentaciones</div>
       <div class="process-desc">Programación de sustentaciones y seguimiento de firma de actas para maestrías.</div>
@@ -638,6 +638,30 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
                 <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </div>
             
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?gid=156450238#gid=156450238" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>1. Cuadro control de alumnos para Sustentar</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?gid=395851873#gid=395851873" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>2. Sustentaciones programadas y control de firmas</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://docs.google.com/spreadsheets/d/1MZb8vdmgnTVkEMNBd6viPbGG3d2mEQYs/edit?gid=352384922#gid=352384922" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>3. Control Sala ZOOM - Sustentaciones</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
           </div>
         </div></div></div></div><div class="process-card" style="animation-delay: 120ms;"><div class="process-head">
     <div class="process-head-left">
@@ -669,7 +693,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="modal-title">🔒 Acceso de edición</div>
     <label class="edit-label">Contraseña</label>
     <input class="edit-field" id="input-password" type="password" placeholder="Ingresa tu contraseña" onkeydown="if(event.key==='Enter') checkPassword()">
-    <div class="modal-error" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    <div class="modal-error visible" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
     <div class="modal-actions">
       <button class="btn btn-light" onclick="closeModal('modal-password')">Cancelar</button>
       <button class="btn" style="background:var(--navy);color:#fff;border-color:var(--navy);" onclick="checkPassword()">Ingresar</button>
@@ -743,7 +767,10 @@ let processes = [
     { type:'plataforma', title:'Ellucian (Aplicativo local)', link:'' },
     { type:'otro', title:'Repositorio - Maestrías EGP', link:'https://drive.google.com/drive/folders/1amhl0eCsZpqTRWEOShAW6PkUwz4MiMB_?usp=drive_link' },
     { type:'otro', title:'Repositorio - Maestrías PBS', link:'https://campusvirtual.up.edu.pe/documentos/escuela_postgrado.aspx' },
-    { type:'otro', title:'Normativas PBS y EGP', link:'https://campusvirtual.up.edu.pe/documentos/escuela_postgrado.aspx' }
+    { type:'otro', title:'Normativas PBS y EGP', link:'https://campusvirtual.up.edu.pe/documentos/escuela_postgrado.aspx' },
+    { type:'otro', title:'1. Cuadro control de alumnos para Sustentar', link:'https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?gid=156450238#gid=156450238' },
+    { type:'otro', title:'2. Sustentaciones programadas y control de firmas', link:'https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?gid=395851873#gid=395851873' },
+    { type:'otro', title:'3. Control Sala ZOOM - Sustentaciones', link:'https://docs.google.com/spreadsheets/d/1MZb8vdmgnTVkEMNBd6viPbGG3d2mEQYs/edit?gid=352384922#gid=352384922' }
   ]},
   { id:1782783051896, area:'Posgrado', subarea:'Programas y Cursos', title:'Matrícula', desc:'Proceso de matrícula regular, recurrente y extraordinaria de programas y cursos', open:false, resources:[
     { type:'manual', title:'Manual proceso de matrícula', link:'https://drive.google.com/file/d/1Ysx364fmtXEMSb3KZznW5PWe0lKcw9lE/view?usp=drive_link' },
@@ -1153,6 +1180,7 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{
 ensureRids(processes);
 renderGroups();
 </script>
+
 
 
 
