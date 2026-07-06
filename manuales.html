@@ -321,7 +321,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <span class="header-tag">DAAR</span>
   </div>
   <div style="display:flex;gap:8px;">
-    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()">
+    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()" style="">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
       Editar
     </button>
@@ -623,7 +623,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
               </div>
             
               <div class="resource-item">
-                <a class="resource-item-link" href="https://campusvirtual.up.edu.pe/documentos/escuela_postgrado.aspx" target="_blank" rel="noopener">
+                <a class="resource-item-link" href="https://drive.google.com/drive/folders/1-3RFWW61fF_fss1h6gWUmW9T1xSlfAVL?usp=drive_link" target="_blank" rel="noopener">
                   <span class="resource-icon">🔗</span>
                   <span>Repositorio - Maestrías PBS</span>
                 </a>
@@ -693,7 +693,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="modal-title">🔒 Acceso de edición</div>
     <label class="edit-label">Contraseña</label>
     <input class="edit-field" id="input-password" type="password" placeholder="Ingresa tu contraseña" onkeydown="if(event.key==='Enter') checkPassword()">
-    <div class="modal-error visible" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    <div class="modal-error" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
     <div class="modal-actions">
       <button class="btn btn-light" onclick="closeModal('modal-password')">Cancelar</button>
       <button class="btn" style="background:var(--navy);color:#fff;border-color:var(--navy);" onclick="checkPassword()">Ingresar</button>
@@ -766,7 +766,7 @@ let processes = [
     { type:'manual', title:'Manual — Proceso de Sustentaciones', link:'https://drive.google.com' },
     { type:'plataforma', title:'Ellucian (Aplicativo local)', link:'' },
     { type:'otro', title:'Repositorio - Maestrías EGP', link:'https://drive.google.com/drive/folders/1amhl0eCsZpqTRWEOShAW6PkUwz4MiMB_?usp=drive_link' },
-    { type:'otro', title:'Repositorio - Maestrías PBS', link:'https://campusvirtual.up.edu.pe/documentos/escuela_postgrado.aspx' },
+    { type:'otro', title:'Repositorio - Maestrías PBS', link:'https://drive.google.com/drive/folders/1-3RFWW61fF_fss1h6gWUmW9T1xSlfAVL?usp=drive_link' },
     { type:'otro', title:'Normativas PBS y EGP', link:'https://campusvirtual.up.edu.pe/documentos/escuela_postgrado.aspx' },
     { type:'otro', title:'1. Cuadro control de alumnos para Sustentar', link:'https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?gid=156450238#gid=156450238' },
     { type:'otro', title:'2. Sustentaciones programadas y control de firmas', link:'https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?gid=395851873#gid=395851873' },
@@ -1180,6 +1180,7 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{
 ensureRids(processes);
 renderGroups();
 </script>
+
 
 
 
