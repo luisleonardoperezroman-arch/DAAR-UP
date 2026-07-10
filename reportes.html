@@ -502,11 +502,39 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <button class="filter-btn" onclick="filterArea(this,'Idiomas')">Idiomas</button>
       <button class="filter-btn" onclick="filterArea(this,'Jefaturas')">Jefaturas</button>
     </div>
-    <span class="count-label" id="count-label">6 reportes</span>
+    <span class="count-label" id="count-label">12 reportes</span>
   </div>
 
   <!-- Grid -->
   <div id="cards-grid"><div class="report-card edit-mode" style="animation-delay: 0ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(1,'area',this.value)">
+          <option value="Pregrado" selected="">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="Matrícula Pregrado" oninput="updateBuf(1,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(1,'desc',this.value)">Reporte de matrículas activas por ciclo y carrera.</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(1,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(1)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 40ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(2,'area',this.value)">
+          <option value="Pregrado" selected="">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="Reservas de Aulas" oninput="updateBuf(2,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(2,'desc',this.value)">Estado de reservas y ocupación de aulas por semana.</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(2,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(2)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 80ms;">
         <label class="edit-label">Área</label>
         <select class="edit-field" onchange="updateBuf(3,'area',this.value)">
           <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
@@ -520,7 +548,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
         <button class="btn btn-danger" onclick="deleteCard(3)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 40ms;">
+        </button></div><div class="report-card edit-mode" style="animation-delay: 120ms;">
         <label class="edit-label">Área</label>
         <select class="edit-field" onchange="updateBuf(4,'area',this.value)">
           <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
@@ -534,7 +562,49 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
         <button class="btn btn-danger" onclick="deleteCard(4)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 80ms;">
+        </button></div><div class="report-card edit-mode" style="animation-delay: 160ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(5,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas" selected="">Idiomas</option><option value="Jefaturas">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="Avance Idiomas" oninput="updateBuf(5,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(5,'desc',this.value)">KPIs de progreso por nivel e idioma.</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(5,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(5)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 200ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(6,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="Horas Extra y Compensatorias" oninput="updateBuf(6,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(6,'desc',this.value)">Control mensual por área y colaborador.</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(6,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(6)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 240ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(7,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="KPIs Generales DAAR" oninput="updateBuf(7,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(7,'desc',this.value)">Dashboard ejecutivo con indicadores clave de gestión.</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(7,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(7)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 280ms;">
         <label class="edit-label">Área</label>
         <select class="edit-field" onchange="updateBuf(8,'area',this.value)">
           <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
@@ -548,7 +618,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
         <button class="btn btn-danger" onclick="deleteCard(8)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 120ms;">
+        </button></div><div class="report-card edit-mode" style="animation-delay: 320ms;">
         <label class="edit-label">Área</label>
         <select class="edit-field" onchange="updateBuf(1779378850656,'area',this.value)">
           <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
@@ -562,7 +632,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
         <button class="btn btn-danger" onclick="deleteCard(1779378850656)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 160ms;">
+        </button></div><div class="report-card edit-mode" style="animation-delay: 360ms;">
         <label class="edit-label">Área</label>
         <select class="edit-field" onchange="updateBuf(1779378921445,'area',this.value)">
           <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
@@ -576,7 +646,21 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
         <button class="btn btn-danger" onclick="deleteCard(1779378921445)">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
           Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 200ms;">
+        </button></div><div class="report-card edit-mode" style="animation-delay: 400ms;">
+        <label class="edit-label">Área</label>
+        <select class="edit-field" onchange="updateBuf(1779379931095,'area',this.value)">
+          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
+        </select>
+        <label class="edit-label">Título</label>
+        <input class="edit-field" type="text" value="DAAR HUB" oninput="updateBuf(1779379931095,'title',this.value)">
+        <label class="edit-label">Descripción</label>
+        <textarea class="edit-field" rows="2" oninput="updateBuf(1779379931095,'desc',this.value)">Registro de personal, cumpleaños y horarios</textarea>
+        <label class="edit-label">Link de Google Drive</label>
+        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing" oninput="updateBuf(1779379931095,'link',this.value)" placeholder="https://drive.google.com/...">
+        <button class="btn btn-danger" onclick="deleteCard(1779379931095)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
+          Eliminar
+        </button></div><div class="report-card edit-mode" style="animation-delay: 440ms;">
         <label class="edit-label">Área</label>
         <select class="edit-field" onchange="updateBuf(1781539674571,'area',this.value)">
           <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
@@ -598,7 +682,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
       Agregar reporte
     </button>
-    <span class="footer-meta" id="footer-meta">6 reportes · DAAR — Universidad del Pacífico</span>
+    <span class="footer-meta" id="footer-meta">12 reportes · DAAR — Universidad del Pacífico</span>
   </div>
 </div>
 
@@ -608,7 +692,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="modal-title">🔒 Acceso de edición</div>
     <label class="edit-label">Contraseña</label>
     <input class="edit-field" id="input-password" type="password" placeholder="Ingresa tu contraseña" onkeydown="if(event.key==='Enter') checkPassword()">
-    <div class="modal-error" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    <div class="modal-error visible" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
     <div class="modal-actions">
       <button class="btn btn-light" onclick="closeModal('modal-password')">Cancelar</button>
       <button class="btn" style="background:var(--navy);color:#fff;border-color:var(--navy);" onclick="checkPassword()">Ingresar</button>
@@ -849,6 +933,7 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{
 
 renderCards();
 </script>
+
 
 
 
