@@ -1,468 +1,172 @@
-<!DOCTYPE html><html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal de Reportes — DAAR · UP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  /* UP Brand */
-  --navy:      #002F6C;
-  --navy-mid:  #003F8A;
-  --navy-soft: #EEF3FA;
-  --navy-pale: #F5F8FD;
+  --navy:#002F6C; --navy-mid:#003F8A; --navy-soft:#EEF3FA; --navy-pale:#F5F8FD;
+  --white:#ffffff; --bg:#F2F4F8; --surface:#ffffff;
+  --border:rgba(0,47,108,0.10); --border-mid:rgba(0,47,108,0.18);
+  --text-primary:#0A1C35; --text-secondary:#4A607A; --text-muted:#8096B0;
+  --radius-sm:8px; --radius-md:14px; --radius-lg:20px;
+  --shadow-sm:0 1px 4px rgba(0,47,108,0.06);
+  --shadow-md:0 4px 20px rgba(0,47,108,0.09);
+  --shadow-lg:0 12px 40px rgba(0,47,108,0.13);
+}
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text-primary); min-height:100vh; -webkit-font-smoothing:antialiased; }
 
-  /* Neutrals */
-  --white:     #ffffff;
-  --bg:        #F2F4F8;
-  --surface:   #ffffff;
-  --border:    rgba(0,47,108,0.10);
-  --border-mid:rgba(0,47,108,0.18);
+/* HEADER */
+header { background:var(--navy); height:68px; display:flex; align-items:center; justify-content:space-between; padding:0 3rem; position:sticky; top:0; z-index:100; }
+.header-left { display:flex; align-items:center; gap:16px; }
+.up-badge { width:40px; height:40px; background:#fff; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.up-badge span { font-family:'Outfit',sans-serif; font-weight:700; font-size:16px; color:var(--navy); letter-spacing:-0.5px; }
+.header-title { color:#fff; font-family:'Outfit',sans-serif; font-size:16px; font-weight:600; letter-spacing:-0.2px; line-height:1.25; }
+.header-title small { display:block; font-family:'DM Sans',sans-serif; font-size:11px; font-weight:400; color:rgba(255,255,255,0.52); margin-top:2px; }
+.header-sep { width:1px; height:28px; background:rgba(255,255,255,0.15); }
+.header-tag { font-family:'DM Sans',sans-serif; font-size:11px; font-weight:500; color:rgba(255,255,255,0.5); letter-spacing:0.8px; text-transform:uppercase; }
 
-  /* Text */
-  --text-primary:   #0A1C35;
-  --text-secondary: #4A607A;
-  --text-muted:     #8096B0;
+/* BOTONES */
+.btn { display:inline-flex; align-items:center; gap:7px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; padding:8px 18px; border-radius:var(--radius-sm); border:1px solid transparent; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
+.btn-outline { background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.82); border-color:rgba(255,255,255,0.18); }
+.btn-outline:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+.btn-primary { background:#fff; color:var(--navy); border-color:#fff; font-weight:600; }
+.btn-primary:hover { background:#E8EFF9; }
+.btn-light { background:var(--surface); color:var(--navy); border-color:var(--border-mid); font-size:13px; }
+.btn-light:hover { background:var(--navy-soft); }
+.btn-danger { background:#FEF0EE; color:#B03020; border-color:#F5C5BF; font-size:12px; padding:5px 12px; }
+.btn-danger:hover { background:#FDDAD6; }
 
-  /* Area accents — all within UP palette */
-  --pre-bg: #E8EFF9;  --pre-c: #002F6C;
-  --pos-bg: #E4EBF7;  --pos-c: #00256A;
-  --idi-bg: #D8E8F5;  --idi-c: #004A8C;
-  --jef-bg: #E0EAFA;  --jef-c: #1A3A6E;
+/* HERO */
+.hero { background:var(--navy); padding:2rem 3rem 2.5rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:-80px; right:-80px; width:320px; height:320px; border-radius:50%; background:rgba(255,255,255,0.04); pointer-events:none; }
+.hero::after { content:''; position:absolute; bottom:-60px; left:30%; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,0.03); pointer-events:none; }
+.hero-inner { max-width:1060px; margin:0 auto; position:relative; z-index:1; }
+.hero-label { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:500; letter-spacing:1.2px; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:1rem; }
+.hero-label::before,.hero-label::after { content:''; display:block; width:20px; height:1px; background:rgba(255,255,255,0.35); }
+.hero-title { font-family:'Outfit',sans-serif; font-size:32px; font-weight:700; color:#fff; line-height:1.1; letter-spacing:-1px; margin-bottom:0.5rem; }
+.hero-sub { font-size:15px; color:rgba(255,255,255,0.55); font-weight:400; line-height:1.6; max-width:480px; }
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 1px 4px rgba(0,47,108,0.06);
-  --shadow-md: 0 4px 20px rgba(0,47,108,0.09);
-  --shadow-lg: 0 12px 40px rgba(0,47,108,0.13);
-}
+/* CONTENT */
+.content { max-width:1060px; margin:0 auto; padding:2.5rem 3rem 5rem; }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text-primary);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
+/* BANNERS */
+.banner { border-radius:var(--radius-md); padding:14px 18px; font-size:13px; margin-bottom:1.5rem; display:none; align-items:flex-start; gap:10px; }
+.banner.visible { display:flex; }
+.banner-edit { background:#FFF8E6; border:1px solid #F0D070; color:#7A5200; }
+.banner-download { background:#E8F5EE; border:1px solid #80C9A0; color:#1A5C30; flex-direction:column; gap:8px; }
+.banner-download strong { font-size:14px; font-weight:600; }
+.banner-steps { margin:2px 0 0 2px; line-height:2; font-size:13px; }
+.banner-note { font-size:12px; color:#2E7D42; margin-top:2px; }
 
-/* ── HEADER ── */
-header {
-  background: var(--navy);
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+/* FILTROS */
+.filter-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.75rem; flex-wrap:wrap; gap:12px; }
+.filters { display:flex; gap:6px; flex-wrap:wrap; }
+.filter-btn { font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; padding:6px 16px; border-radius:99px; border:1px solid var(--border-mid); background:var(--surface); color:var(--text-secondary); cursor:pointer; transition:all 0.18s; }
+.filter-btn:hover { border-color:var(--navy); color:var(--navy); background:var(--navy-soft); }
+.filter-btn.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+.count-label { font-size:12px; color:var(--text-muted); font-family:'DM Sans',sans-serif; }
 
-.header-left { display: flex; align-items: center; gap: 16px; }
+/* SECCIÓN */
+.section-block { margin-bottom:2.25rem; }
+.section-header { display:flex; align-items:center; gap:12px; margin-bottom:1rem; }
+.section-title { font-family:'Outfit',sans-serif; font-size:16px; font-weight:700; color:var(--text-primary); }
+.section-line { flex:1; height:1px; background:var(--border-mid); }
+.section-count { font-size:11px; color:var(--text-muted); background:var(--bg); border:1px solid var(--border-mid); border-radius:99px; padding:2px 10px; }
 
-.up-badge {
-  width: 40px; height: 40px;
-  background: #ffffff;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.up-badge span {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700; font-size: 16px;
-  color: var(--navy);
-  letter-spacing: -0.5px;
-}
+/* SUB-SECCIÓN (dentro de Posgrado) */
+.subsection-block { margin-bottom:1.5rem; }
+.subsection-header { display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; padding-left:2px; }
+.subsection-dot { width:8px; height:8px; border-radius:50%; background:var(--navy); opacity:0.4; flex-shrink:0; }
+.subsection-title { font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px; }
 
-.header-title {
-  color: #fff;
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.2px;
-  line-height: 1.25;
-}
-.header-title small {
-  display: block;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.52);
-  margin-top: 2px;
-  letter-spacing: 0;
-}
+/* GRID */
+.cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
 
-.header-sep {
-  width: 1px; height: 28px;
-  background: rgba(255,255,255,0.15);
-}
+/* CARD */
+.report-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.4rem 1.5rem; display:flex; flex-direction:column; gap:10px; box-shadow:var(--shadow-sm); transition:box-shadow 0.22s,transform 0.18s,border-color 0.18s; animation:fadeUp 0.35s ease both; cursor:grab; }
+.report-card:active { cursor:grabbing; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+.report-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); border-color:var(--border-mid); }
+.report-card.edit-mode { border-color:#4A90D9; box-shadow:0 0 0 3px rgba(74,144,217,0.12),var(--shadow-sm); cursor:default; }
+.report-card.dragging { opacity:0.4; transform:scale(0.97); box-shadow:var(--shadow-md); }
+.report-card.drag-over { border-color:var(--navy); background:var(--navy-soft); transform:scale(1.02); }
 
-.header-tag {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px; font-weight: 500;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
+.area-badge { display:inline-flex; align-items:center; font-size:10px; font-weight:600; letter-spacing:0.7px; text-transform:uppercase; padding:3px 10px; border-radius:99px; width:fit-content; }
+.card-title { font-family:'Outfit',sans-serif; font-size:15px; font-weight:600; color:var(--text-primary); line-height:1.3; }
+.card-desc { font-size:12.5px; color:var(--text-secondary); line-height:1.6; flex:1; }
+.card-divider { height:1px; background:var(--border); margin:2px 0; }
+.card-open-btn { display:inline-flex; align-items:center; gap:7px; font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; color:var(--navy); background:var(--navy-soft); border:1px solid rgba(0,47,108,0.12); border-radius:var(--radius-sm); padding:7px 13px; cursor:pointer; text-decoration:none; transition:background 0.18s,border-color 0.18s; margin-top:2px; }
+.card-open-btn:hover { background:#D4E2F5; border-color:rgba(0,47,108,0.25); }
 
-/* ── BOTONES ── */
-.btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px; font-weight: 500;
-  padding: 8px 18px; border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  cursor: pointer; transition: all 0.2s;
-  white-space: nowrap;
-}
-.btn-outline {
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.82);
-  border-color: rgba(255,255,255,0.18);
-}
-.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+/* EDIT FIELDS */
+.edit-label { display:block; font-size:10px; font-weight:600; letter-spacing:0.6px; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px; }
+.edit-field { width:100%; font-family:'DM Sans',sans-serif; font-size:12.5px; padding:7px 10px; border:1px solid var(--border-mid); border-radius:var(--radius-sm); background:var(--bg); color:var(--text-primary); margin-bottom:10px; transition:border-color 0.15s,background 0.15s; }
+.edit-field:focus { outline:none; border-color:#4A90D9; background:#fff; }
+textarea.edit-field { resize:vertical; line-height:1.55; }
 
-.btn-primary {
-  background: #fff;
-  color: var(--navy);
-  border-color: #fff;
-  font-weight: 600;
-}
-.btn-primary:hover { background: #E8EFF9; }
+/* ADD PLACEHOLDER */
+.add-placeholder { background:transparent; border:2px dashed var(--border-mid); border-radius:var(--radius-md); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:2rem; cursor:pointer; min-height:160px; transition:border-color 0.18s,background 0.18s; color:var(--text-muted); font-size:13px; }
+.add-placeholder:hover { border-color:var(--navy); background:var(--navy-soft); color:var(--navy); }
+.add-plus { width:40px; height:40px; border-radius:50%; background:var(--border); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:300; color:var(--text-muted); transition:background 0.18s,color 0.18s; }
+.add-placeholder:hover .add-plus { background:var(--navy); color:#fff; }
 
-.btn-light {
-  background: var(--surface);
-  color: var(--navy);
-  border-color: var(--border-mid);
-  font-size: 13px;
-}
-.btn-light:hover { background: var(--navy-soft); }
+/* FOOTER */
+.footer-row { margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.footer-meta { font-size:12px; color:var(--text-muted); }
 
-.btn-danger {
-  background: #FEF0EE; color: #B03020;
-  border-color: #F5C5BF; font-size: 12px; padding: 5px 12px;
-}
-.btn-danger:hover { background: #FDDAD6; }
-
-/* ── HERO ── */
-.hero {
-  background: var(--navy);
-  padding: 2rem 3rem 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 320px; height: 320px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.04);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -60px; left: 30%;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.03);
-  pointer-events: none;
-}
-
-.hero-inner { max-width: 1060px; margin: 0 auto; position: relative; z-index: 1; }
-
-.hero-label {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 11px; font-weight: 500; letter-spacing: 1.2px;
-  text-transform: uppercase; color: rgba(255,255,255,0.5);
-  margin-bottom: 1rem;
-}
-.hero-label::before {
-  content: '';
-  display: block; width: 20px; height: 1px;
-  background: rgba(255,255,255,0.35);
-}
-.hero-label::after {
-  content: '';
-  display: block; width: 20px; height: 1px;
-  background: rgba(255,255,255,0.35);
-}
-
-.hero-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 32px; font-weight: 700;
-  color: #ffffff;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  margin-bottom: 0.5rem;
-}
-
-.hero-sub {
-  font-size: 15px; color: rgba(255,255,255,0.55);
-  font-weight: 400; line-height: 1.6;
-  max-width: 480px;
-}
-
-/* ── CONTENT ── */
-.content { max-width: 1060px; margin: 0 auto; padding: 2.5rem 3rem 5rem; }
-
-/* ── BANNERS ── */
-.banner {
-  border-radius: var(--radius-md);
-  padding: 14px 18px;
-  font-size: 13px;
-  margin-bottom: 1.5rem;
-  display: none; align-items: flex-start; gap: 10px;
-}
-.banner.visible { display: flex; }
-.banner-edit {
-  background: #FFF8E6; border: 1px solid #F0D070; color: #7A5200;
-}
-.banner-download {
-  background: #E8F5EE; border: 1px solid #80C9A0; color: #1A5C30;
-  flex-direction: column; gap: 8px;
-}
-.banner-download strong { font-size: 14px; font-weight: 600; }
-.banner-steps { margin: 2px 0 0 2px; line-height: 2; font-size: 13px; }
-.banner-steps li { padding-left: 4px; }
-.banner-note { font-size: 12px; color: #2E7D42; margin-top: 2px; }
-
-/* ── FILTROS ── */
-.filter-row {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 1.75rem; flex-wrap: wrap; gap: 12px;
-}
-.filters { display: flex; gap: 6px; flex-wrap: wrap; }
-
-.filter-btn {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px; font-weight: 500;
-  padding: 6px 16px; border-radius: 99px;
-  border: 1px solid var(--border-mid);
-  background: var(--surface); color: var(--text-secondary);
-  cursor: pointer; transition: all 0.18s;
-}
-.filter-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--navy-soft); }
-.filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-
-.count-label {
-  font-size: 12px; color: var(--text-muted);
-  font-family: 'DM Sans', sans-serif;
-}
-
-/* ── GRID ── */
-#cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-/* ── CARD ── */
-.report-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.4rem 1.5rem;
-  display: flex; flex-direction: column; gap: 10px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.22s, transform 0.18s, border-color 0.18s;
-  animation: fadeUp 0.35s ease both;
-}
-@keyframes fadeUp {
-  from { opacity:0; transform: translateY(10px); }
-  to   { opacity:1; transform: none; }
-}
-.report-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
-  border-color: var(--border-mid);
-}
-.report-card.edit-mode {
-  border-color: #4A90D9;
-  box-shadow: 0 0 0 3px rgba(74,144,217,0.12), var(--shadow-sm);
-}
-
-.area-badge {
-  display: inline-flex; align-items: center;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.7px;
-  text-transform: uppercase;
-  padding: 3px 10px; border-radius: 99px;
-  width: fit-content;
-}
-
-.card-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px; font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.3;
-}
-
-.card-desc {
-  font-size: 12.5px; color: var(--text-secondary);
-  line-height: 1.6; flex: 1;
-}
-
-.card-divider {
-  height: 1px; background: var(--border); margin: 2px 0;
-}
-
-.card-open-btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px; font-weight: 500;
-  color: var(--navy);
-  background: var(--navy-soft);
-  border: 1px solid rgba(0,47,108,0.12);
-  border-radius: var(--radius-sm);
-  padding: 7px 13px;
-  cursor: pointer; text-decoration: none;
-  transition: background 0.18s, border-color 0.18s;
-  margin-top: 2px;
-}
-.card-open-btn:hover { background: #D4E2F5; border-color: rgba(0,47,108,0.25); }
-.card-open-btn svg { flex-shrink: 0; }
-
-/* ── EDIT FIELDS ── */
-.edit-label {
-  display: block;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.6px;
-  text-transform: uppercase; color: var(--text-muted);
-  margin-bottom: 4px;
-}
-.edit-field {
-  width: 100%; font-family: 'DM Sans', sans-serif;
-  font-size: 12.5px; padding: 7px 10px;
-  border: 1px solid var(--border-mid); border-radius: var(--radius-sm);
-  background: var(--bg); color: var(--text-primary);
-  margin-bottom: 10px; transition: border-color 0.15s, background 0.15s;
-}
-.edit-field:focus { outline: none; border-color: #4A90D9; background: #fff; }
-textarea.edit-field { resize: vertical; line-height: 1.55; }
-
-/* ── ADD PLACEHOLDER ── */
-.add-placeholder {
-  background: transparent;
-  border: 2px dashed var(--border-mid);
-  border-radius: var(--radius-md);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 10px; padding: 2rem;
-  cursor: pointer; min-height: 160px;
-  transition: border-color 0.18s, background 0.18s;
-  color: var(--text-muted); font-size: 13px;
-}
-.add-placeholder:hover {
-  border-color: var(--navy);
-  background: var(--navy-soft);
-  color: var(--navy);
-}
-.add-plus {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; font-weight: 300; color: var(--text-muted);
-  transition: background 0.18s, color 0.18s;
-}
-.add-placeholder:hover .add-plus { background: var(--navy); color: #fff; }
-
-/* ── FOOTER ── */
-.footer-row {
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 10px;
-}
-.footer-meta { font-size: 12px; color: var(--text-muted); }
-
-/* ── MODALES ── */
-.modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,20,50,0.5);
-  backdrop-filter: blur(4px);
-  z-index: 200; align-items: center; justify-content: center;
-}
-.modal-overlay.open { display: flex; }
-.modal {
-  background: var(--surface); border-radius: var(--radius-lg);
-  padding: 2rem 2.25rem; width: 92%; max-width: 440px;
-  box-shadow: 0 32px 80px rgba(0,20,50,0.22);
-  animation: modalIn 0.22s ease;
-}
+/* MODALES */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,20,50,0.5); backdrop-filter:blur(4px); z-index:200; align-items:center; justify-content:center; }
+.modal-overlay.open { display:flex; }
+.modal { background:var(--surface); border-radius:var(--radius-lg); padding:2rem 2.25rem; width:92%; max-width:440px; box-shadow:0 32px 80px rgba(0,20,50,0.22); animation:modalIn 0.22s ease; }
 @keyframes modalIn { from{transform:translateY(18px);opacity:0} to{transform:none;opacity:1} }
+.modal-title { font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:var(--text-primary); margin-bottom:1.4rem; }
+.modal-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:1.4rem; }
+.modal-error { font-size:12px; color:#B03020; background:#FEF0EE; border-radius:6px; padding:6px 10px; margin-top:-6px; margin-bottom:10px; display:none; }
+.modal-error.visible { display:block; }
 
-.modal-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 18px; font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1.4rem;
-}
-.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 1.4rem; }
-.modal-error {
-  font-size: 12px; color: #B03020;
-  background: #FEF0EE; border-radius: 6px;
-  padding: 6px 10px; margin-top: -6px; margin-bottom: 10px;
-  display: none;
-}
-.modal-error.visible { display: block; }
+/* DRAG HINT */
+.drag-hint { font-size:11px; color:var(--text-muted); display:flex; align-items:center; gap:5px; }
 
-/* ── TOAST ── */
-.toast {
-  position: fixed; bottom: 2rem; right: 2rem;
-  background: var(--navy); color: #fff;
-  font-size: 13px; font-weight: 500;
-  padding: 11px 20px; border-radius: 10px;
-  box-shadow: var(--shadow-lg);
-  opacity: 0; transform: translateY(10px);
-  transition: all 0.3s; z-index: 300; pointer-events: none;
-}
-.toast.show { opacity: 1; transform: none; }
+/* TOAST */
+.toast { position:fixed; bottom:2rem; right:2rem; background:var(--navy); color:#fff; font-size:13px; font-weight:500; padding:11px 20px; border-radius:10px; box-shadow:var(--shadow-lg); opacity:0; transform:translateY(10px); transition:all 0.3s; z-index:300; pointer-events:none; }
+.toast.show { opacity:1; transform:none; }
 
-/* ── RESPONSIVE ── */
 @media(max-width:700px){
-  header { padding: 0 1.25rem; }
-  .hero { padding: 2.5rem 1.25rem 3rem; }
-  .hero-title { font-size: 28px; }
-  .content { padding: 2rem 1.25rem 4rem; }
-  .header-sep, .header-tag { display: none; }
+  header{padding:0 1.25rem;} .hero{padding:2.5rem 1.25rem 3rem;} .hero-title{font-size:28px;}
+  .content{padding:2rem 1.25rem 4rem;} .header-sep,.header-tag{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-left">
     <div class="up-badge"><span>UP</span></div>
-    <div class="header-title">
-      Portal de Reportes
-      <small>Dirección de Asuntos Académicos y Registro</small>
-    </div>
+    <div class="header-title">Portal de Reportes<small>Dirección de Asuntos Académicos y Registro</small></div>
     <div class="header-sep"></div>
     <span class="header-tag">DAAR</span>
   </div>
   <div style="display:flex;gap:8px;">
     <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
       Editar
     </button>
     <button class="btn btn-primary" id="btn-save" onclick="saveChanges()" style="display:none;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Guardar y descargar
     </button>
     <button class="btn btn-outline" id="btn-cancel" onclick="cancelEdit()" style="display:none;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       Cancelar
     </button>
   </div>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-label">Universidad del Pacífico</div>
@@ -471,16 +175,13 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
   </div>
 </div>
 
-<!-- CONTENIDO -->
 <div class="content">
 
-  <!-- Banner edición -->
   <div class="banner banner-edit" id="edit-banner">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-    <span><strong>Modo edición activo</strong> — modifica los datos de cada reporte y presiona "Guardar y descargar" al terminar.</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span><strong>Modo edición activo</strong> — modifica los datos y presiona "Guardar y descargar" al terminar. Puedes arrastrar las tarjetas para reordenarlas.</span>
   </div>
 
-  <!-- Banner descarga -->
   <div class="banner banner-download" id="download-banner">
     <strong>✅ ¡Archivo descargado! Sigue estos pasos para publicar los cambios:</strong>
     <ol class="banner-steps">
@@ -493,196 +194,25 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <span class="banner-note">En 1-2 minutos todos verán los cambios en el link.</span>
   </div>
 
-  <!-- Filtros -->
   <div class="filter-row">
     <div class="filters">
-      <button class="filter-btn" onclick="filterArea(this,'all')">Todos</button>
+      <button class="filter-btn active" onclick="filterArea(this,'all')">Todos</button>
       <button class="filter-btn" onclick="filterArea(this,'Pregrado')">Pregrado</button>
-      <button class="filter-btn active" onclick="filterArea(this,'Posgrado')">Posgrado</button>
+      <button class="filter-btn" onclick="filterArea(this,'Posgrado')">Posgrado</button>
       <button class="filter-btn" onclick="filterArea(this,'Idiomas')">Idiomas</button>
       <button class="filter-btn" onclick="filterArea(this,'Jefaturas')">Jefaturas</button>
     </div>
-    <span class="count-label" id="count-label">12 reportes</span>
+    <span class="count-label" id="count-label"></span>
   </div>
 
-  <!-- Grid -->
-  <div id="cards-grid"><div class="report-card edit-mode" style="animation-delay: 0ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(1,'area',this.value)">
-          <option value="Pregrado" selected="">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Matrícula Pregrado" oninput="updateBuf(1,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(1,'desc',this.value)">Reporte de matrículas activas por ciclo y carrera.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(1,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(1)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 40ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(2,'area',this.value)">
-          <option value="Pregrado" selected="">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Reservas de Aulas" oninput="updateBuf(2,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(2,'desc',this.value)">Estado de reservas y ocupación de aulas por semana.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(2,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(2)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 80ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(3,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Matrículas - EEPBS" oninput="updateBuf(3,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(3,'desc',this.value)">Seguimiento de matrícula inicial, recurrente y extraordinaria.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1f2x_FC-cmna4S_rD78Y6foiaEz1L7HPV/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(3,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(3)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 120ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(4,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Programación de Clase" oninput="updateBuf(4,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(4,'desc',this.value)">Estado de las solicitudes de programación de clase.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1HE39C9m4n0Uq5-KFokusBeJob7py9kl7/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(4,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(4)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 160ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(5,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas" selected="">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Avance Idiomas" oninput="updateBuf(5,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(5,'desc',this.value)">KPIs de progreso por nivel e idioma.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(5,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(5)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 200ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(6,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Horas Extra y Compensatorias" oninput="updateBuf(6,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(6,'desc',this.value)">Control mensual por área y colaborador.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(6,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(6)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 240ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(7,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="KPIs Generales DAAR" oninput="updateBuf(7,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(7,'desc',this.value)">Dashboard ejecutivo con indicadores clave de gestión.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://drive.google.com" oninput="updateBuf(7,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(7)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 280ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(8,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Certificaciones EE" oninput="updateBuf(8,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(8,'desc',this.value)">Estado de certificaciones por escuela y subunidad.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&amp;ouid=100123688016050204607&amp;rtpof=true&amp;sd=true" oninput="updateBuf(8,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(8)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 320ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(1779378850656,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Sustentaciones - Estatus de grupos y alumnos" oninput="updateBuf(1779378850656,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(1779378850656,'desc',this.value)">Registro de solicitudes de sustentación de grupos y alumnos de maestrías.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?usp=sharing" oninput="updateBuf(1779378850656,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(1779378850656)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 360ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(1779378921445,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Sustentaciones - Programación de sustentaciones y estado de firmas de actas" oninput="updateBuf(1779378921445,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(1779378921445,'desc',this.value)">Registro de las sustentaciones programadas y estados de firma de actas de sustentaciones desarrolladas.</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?usp=sharing" oninput="updateBuf(1779378921445,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(1779378921445)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 400ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(1779379931095,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas" selected="">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="DAAR HUB" oninput="updateBuf(1779379931095,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(1779379931095,'desc',this.value)">Registro de personal, cumpleaños y horarios</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing" oninput="updateBuf(1779379931095,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(1779379931095)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="report-card edit-mode" style="animation-delay: 440ms;">
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(1781539674571,'area',this.value)">
-          <option value="Pregrado">Pregrado</option><option value="Posgrado" selected="">Posgrado</option><option value="Idiomas">Idiomas</option><option value="Jefaturas">Jefaturas</option>
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="Creación de Productos EE" oninput="updateBuf(1781539674571,'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(1781539674571,'desc',this.value)">Registro de creación de producto de Educación Ejecutiva</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing" oninput="updateBuf(1781539674571,'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(1781539674571)">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
-          Eliminar
-        </button></div><div class="add-placeholder"><div class="add-plus">+</div><span>Agregar reporte</span></div></div>
+  <div id="main-content"></div>
 
-  <!-- Footer -->
   <div class="footer-row">
     <button class="btn btn-light" id="btn-add" onclick="openAddModal()" style="display:none;">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       Agregar reporte
     </button>
-    <span class="footer-meta" id="footer-meta">12 reportes · DAAR — Universidad del Pacífico</span>
+    <span class="footer-meta" id="footer-meta"></span>
   </div>
 </div>
 
@@ -692,7 +222,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="modal-title">🔒 Acceso de edición</div>
     <label class="edit-label">Contraseña</label>
     <input class="edit-field" id="input-password" type="password" placeholder="Ingresa tu contraseña" onkeydown="if(event.key==='Enter') checkPassword()">
-    <div class="modal-error visible" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    <div class="modal-error" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
     <div class="modal-actions">
       <button class="btn btn-light" onclick="closeModal('modal-password')">Cancelar</button>
       <button class="btn" style="background:var(--navy);color:#fff;border-color:var(--navy);" onclick="checkPassword()">Ingresar</button>
@@ -706,7 +236,11 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="modal-title">Nuevo reporte</div>
     <label class="edit-label">Área</label>
     <select class="edit-field" id="new-area">
-      <option>Pregrado</option><option>Posgrado</option><option>Idiomas</option><option>Jefaturas</option>
+      <option value="Pregrado">Pregrado</option>
+      <option value="Posgrado-PC">Posgrado — Programas y Cursos</option>
+      <option value="Posgrado-M">Posgrado — Maestrías</option>
+      <option value="Idiomas">Idiomas</option>
+      <option value="Jefaturas">Jefaturas</option>
     </select>
     <label class="edit-label">Título</label>
     <input class="edit-field" id="new-title" type="text" placeholder="Ej. Matrícula Pregrado">
@@ -724,92 +258,246 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
 <div class="toast" id="toast"></div>
 
 <script>
-const PASSWORD = 'Covid26@';
+const PASSWORD = 'DAAR2026';
 
 const AREA_STYLE = {
-  Pregrado:  { bg:'#DDEEFF', color:'#003A80' },
-  Posgrado:  { bg:'#E0D8F8', color:'#3A1F8A' },
-  Idiomas:   { bg:'#D4EFE0', color:'#0A5C30' },
-  Jefaturas: { bg:'#FDEFD4', color:'#7A4200' },
+  'Pregrado':    { bg:'#DDEEFF', color:'#003A80', label:'Pregrado' },
+  'Posgrado-PC': { bg:'#E0D8F8', color:'#3A1F8A', label:'Prog. y Cursos' },
+  'Posgrado-M':  { bg:'#D4C8F5', color:'#2E1070', label:'Maestrías' },
+  'Idiomas':     { bg:'#D4EFE0', color:'#0A5C30', label:'Idiomas' },
+  'Jefaturas':   { bg:'#FDEFD4', color:'#7A4200', label:'Jefaturas' },
 };
 
 // ══ DATOS DE REPORTES — se reemplaza automáticamente al descargar ══
 let reports = [
   { id:1, area:'Pregrado', title:'Matrícula Pregrado', desc:'Reporte de matrículas activas por ciclo y carrera.', link:'https://drive.google.com' },
   { id:2, area:'Pregrado', title:'Reservas de Aulas', desc:'Estado de reservas y ocupación de aulas por semana.', link:'https://drive.google.com' },
-  { id:3, area:'Posgrado', title:'Matrículas - EEPBS', desc:'Seguimiento de matrícula inicial, recurrente y extraordinaria.', link:'https://docs.google.com/spreadsheets/d/1f2x_FC-cmna4S_rD78Y6foiaEz1L7HPV/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
-  { id:4, area:'Posgrado', title:'Programación de Clase', desc:'Estado de las solicitudes de programación de clase.', link:'https://docs.google.com/spreadsheets/d/1HE39C9m4n0Uq5-KFokusBeJob7py9kl7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
+  { id:3, area:'Posgrado-PC', title:'Matrículas - EEPBS', desc:'Seguimiento de matrícula inicial, recurrente y extraordinaria.', link:'https://docs.google.com/spreadsheets/d/1f2x_FC-cmna4S_rD78Y6foiaEz1L7HPV/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
+  { id:4, area:'Posgrado-PC', title:'Programación de Clase', desc:'Estado de las solicitudes de programación de clase.', link:'https://docs.google.com/spreadsheets/d/1HE39C9m4n0Uq5-KFokusBeJob7py9kl7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
+  { id:8, area:'Posgrado-PC', title:'Certificaciones EE', desc:'Estado de certificaciones por escuela y subunidad.', link:'https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
+  { id:1781539674571, area:'Posgrado-PC', title:'Creación de Productos EE', desc:'Registro de creación de producto de Educación Ejecutiva.', link:'https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing' },
+  { id:1779378850656, area:'Posgrado-M', title:'Sustentaciones - Estatus de grupos y alumnos', desc:'Registro de solicitudes de sustentación de grupos y alumnos de maestrías.', link:'https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?usp=sharing' },
+  { id:1779378921445, area:'Posgrado-M', title:'Sustentaciones - Programación y estado de firmas', desc:'Registro de las sustentaciones programadas y estados de firma de actas.', link:'https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?usp=sharing' },
   { id:5, area:'Idiomas', title:'Avance Idiomas', desc:'KPIs de progreso por nivel e idioma.', link:'https://drive.google.com' },
   { id:6, area:'Jefaturas', title:'Horas Extra y Compensatorias', desc:'Control mensual por área y colaborador.', link:'https://drive.google.com' },
   { id:7, area:'Jefaturas', title:'KPIs Generales DAAR', desc:'Dashboard ejecutivo con indicadores clave de gestión.', link:'https://drive.google.com' },
-  { id:8, area:'Posgrado', title:'Certificaciones EE', desc:'Estado de certificaciones por escuela y subunidad.', link:'https://docs.google.com/spreadsheets/d/1ky3MfRn9GMsG-0JlRklybj1PDLuwcak7/edit?usp=sharing&ouid=100123688016050204607&rtpof=true&sd=true' },
-  { id:1779378850656, area:'Posgrado', title:'Sustentaciones - Estatus de grupos y alumnos', desc:'Registro de solicitudes de sustentación de grupos y alumnos de maestrías.', link:'https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?usp=sharing' },
-  { id:1779378921445, area:'Posgrado', title:'Sustentaciones - Programación de sustentaciones y estado de firmas de actas', desc:'Registro de las sustentaciones programadas y estados de firma de actas de sustentaciones desarrolladas.', link:'https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?usp=sharing' },
-  { id:1779379931095, area:'Jefaturas', title:'DAAR HUB', desc:'Registro de personal, cumpleaños y horarios', link:'https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing' },
-  { id:1781539674571, area:'Posgrado', title:'Creación de Productos EE', desc:'Registro de creación de producto de Educación Ejecutiva', link:'https://docs.google.com/spreadsheets/d/1rLjgTlrv_8CP7i--wJONBAJQA2KM95VIyyh8J30KiXE/edit?usp=sharing' }
-]
+  { id:1779379931095, area:'Jefaturas', title:'DAAR HUB', desc:'Registro de personal, cumpleaños y horarios.', link:'https://docs.google.com/spreadsheets/d/1PIZi2jbvcExOzCFRLQwczy9f115vo2qQm1pvItcPYpg/edit?usp=sharing' }
+];
 // ══ FIN DATOS ══
 
 let editMode = false;
 let currentFilter = 'all';
 let editBuffer = [];
+let dragSrcId = null;
 
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function escJs(s){ return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\r?\n/g,'\\n'); }
-function getFiltered(){ return currentFilter==='all' ? reports : reports.filter(r=>r.area===currentFilter); }
 
-function renderCards(){
-  const grid = document.getElementById('cards-grid');
-  const filtered = getFiltered();
-  const n = filtered.length;
+// ── RENDER PRINCIPAL ──
+function renderAll(){
+  const container = document.getElementById('main-content');
+  container.innerHTML = '';
+
+  if(currentFilter === 'all'){
+    renderSections(container);
+  } else if(currentFilter === 'Posgrado'){
+    renderPosgradoSections(container, false);
+  } else {
+    const filtered = reports.filter(r => areaMatch(r.area, currentFilter));
+    updateCount(filtered.length);
+    const grid = makeGrid();
+    filtered.forEach((r,i) => grid.appendChild(makeCard(r,i)));
+    if(editMode) grid.appendChild(makePlaceholder());
+    container.appendChild(grid);
+  }
+
+  if(editMode) setupDrag();
+}
+
+function areaMatch(area, filter){
+  if(filter === 'Posgrado') return area === 'Posgrado-PC' || area === 'Posgrado-M';
+  return area === filter;
+}
+
+function renderSections(container){
+  const order = ['Pregrado','Posgrado','Idiomas','Jefaturas'];
+  let total = 0;
+  order.forEach(sectionKey => {
+    let items;
+    if(sectionKey === 'Posgrado'){
+      items = reports.filter(r => r.area === 'Posgrado-PC' || r.area === 'Posgrado-M');
+    } else {
+      items = reports.filter(r => r.area === sectionKey);
+    }
+    if(items.length === 0 && !editMode) return;
+    total += items.length;
+
+    const block = document.createElement('div');
+    block.className = 'section-block';
+
+    const hdr = document.createElement('div');
+    hdr.className = 'section-header';
+    hdr.innerHTML = `<div class="section-title">${sectionKey}</div><div class="section-line"></div><span class="section-count">${items.length} reporte${items.length!==1?'s':''}</span>`;
+    block.appendChild(hdr);
+
+    if(sectionKey === 'Posgrado'){
+      renderPosgradoSections(block, true);
+    } else {
+      const grid = makeGrid();
+      items.forEach((r,i) => grid.appendChild(makeCard(r,i)));
+      if(editMode && sectionKey === 'Jefaturas') grid.appendChild(makePlaceholder());
+      block.appendChild(grid);
+    }
+    container.appendChild(block);
+  });
+  updateCount(total);
+  if(editMode && currentFilter==='all'){
+    // add placeholder al final si no hay Jefaturas aún
+    const hasJef = reports.some(r=>r.area==='Jefaturas');
+    if(!hasJef){
+      const grid = makeGrid();
+      grid.appendChild(makePlaceholder());
+      container.appendChild(grid);
+    }
+  }
+}
+
+function renderPosgradoSections(container, isNested){
+  const pcItems = reports.filter(r=>r.area==='Posgrado-PC');
+  const mItems  = reports.filter(r=>r.area==='Posgrado-M');
+  if(!isNested) updateCount(pcItems.length + mItems.length);
+
+  // Programas y Cursos
+  const pc = document.createElement('div');
+  pc.className = 'subsection-block';
+  pc.innerHTML = `<div class="subsection-header"><div class="subsection-dot"></div><span class="subsection-title">Programas y Cursos</span></div>`;
+  const pcGrid = makeGrid();
+  pcItems.forEach((r,i)=>pcGrid.appendChild(makeCard(r,i)));
+  if(editMode) pcGrid.appendChild(makePlaceholderArea('Posgrado-PC'));
+  pc.appendChild(pcGrid);
+  container.appendChild(pc);
+
+  // Maestrías
+  const m = document.createElement('div');
+  m.className = 'subsection-block';
+  m.innerHTML = `<div class="subsection-header"><div class="subsection-dot"></div><span class="subsection-title">Maestrías</span></div>`;
+  const mGrid = makeGrid();
+  mItems.forEach((r,i)=>mGrid.appendChild(makeCard(r,i)));
+  if(editMode) mGrid.appendChild(makePlaceholderArea('Posgrado-M'));
+  m.appendChild(mGrid);
+  container.appendChild(m);
+}
+
+function makeGrid(){
+  const g = document.createElement('div');
+  g.className = 'cards-grid';
+  return g;
+}
+
+function makeCard(r, i){
+  const st = AREA_STYLE[r.area] || AREA_STYLE['Jefaturas'];
+  const card = document.createElement('div');
+  card.className = 'report-card' + (editMode ? ' edit-mode' : '');
+  card.style.animationDelay = (i*40)+'ms';
+  card.dataset.id = r.id;
+
+  if(!editMode){
+    card.draggable = false;
+    card.innerHTML = `
+      <span class="area-badge" style="background:${st.bg};color:${st.color};">${st.label}</span>
+      <div class="card-title">${esc(r.title)}</div>
+      <div class="card-desc">${esc(r.desc)}</div>
+      <div class="card-divider"></div>
+      <a class="card-open-btn" href="${esc(r.link)}" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Abrir reporte
+      </a>`;
+  } else {
+    card.draggable = true;
+    const buf = editBuffer.find(x=>x.id===r.id) || r;
+    card.innerHTML = `
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;cursor:grab;color:var(--text-muted);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="5" r="1" fill="currentColor"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="9" cy="19" r="1" fill="currentColor"/><circle cx="15" cy="5" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="19" r="1" fill="currentColor"/></svg>
+        <span style="font-size:11px;">Arrastrar para reordenar</span>
+      </div>
+      <label class="edit-label">Área / Sub-bloque</label>
+      <select class="edit-field" onchange="updateBuf(${r.id},'area',this.value)">
+        <option value="Pregrado"${buf.area==='Pregrado'?' selected':''}>Pregrado</option>
+        <option value="Posgrado-PC"${buf.area==='Posgrado-PC'?' selected':''}>Posgrado — Programas y Cursos</option>
+        <option value="Posgrado-M"${buf.area==='Posgrado-M'?' selected':''}>Posgrado — Maestrías</option>
+        <option value="Idiomas"${buf.area==='Idiomas'?' selected':''}>Idiomas</option>
+        <option value="Jefaturas"${buf.area==='Jefaturas'?' selected':''}>Jefaturas</option>
+      </select>
+      <label class="edit-label">Título</label>
+      <input class="edit-field" type="text" value="${esc(buf.title)}" oninput="updateBuf(${r.id},'title',this.value)">
+      <label class="edit-label">Descripción</label>
+      <textarea class="edit-field" rows="2" oninput="updateBuf(${r.id},'desc',this.value)">${esc(buf.desc)}</textarea>
+      <label class="edit-label">Link de Google Drive</label>
+      <input class="edit-field" type="url" value="${esc(buf.link)}" oninput="updateBuf(${r.id},'link',this.value)" placeholder="https://drive.google.com/...">
+      <button class="btn btn-danger" onclick="deleteCard(${r.id})">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+        Eliminar
+      </button>`;
+  }
+  return card;
+}
+
+function makePlaceholder(){ return makePlaceholderArea(null); }
+function makePlaceholderArea(area){
+  const ph = document.createElement('div');
+  ph.className = 'add-placeholder';
+  ph.dataset.area = area || '';
+  ph.onclick = () => openAddModal(area);
+  ph.innerHTML = `<div class="add-plus">+</div><span>Agregar reporte</span>`;
+  return ph;
+}
+
+function updateCount(n){
   document.getElementById('count-label').textContent = n + ' reporte' + (n!==1?'s':'');
   document.getElementById('footer-meta').textContent = n + ' reporte' + (n!==1?'s':'') + ' · DAAR — Universidad del Pacífico';
-  grid.innerHTML = '';
+}
 
-  filtered.forEach((r, i) => {
-    const st = AREA_STYLE[r.area] || AREA_STYLE['Jefaturas'];
-    const card = document.createElement('div');
-    card.className = 'report-card' + (editMode ? ' edit-mode' : '');
-    card.style.animationDelay = (i * 40) + 'ms';
-
-    if(!editMode){
-      card.innerHTML = `
-        <span class="area-badge" style="background:${st.bg};color:${st.color};">${r.area}</span>
-        <div class="card-title">${esc(r.title)}</div>
-        <div class="card-desc">${esc(r.desc)}</div>
-        <div class="card-divider"></div>
-        <a class="card-open-btn" href="${esc(r.link)}" target="_blank" rel="noopener">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Abrir reporte
-        </a>`;
-    } else {
-      const buf = editBuffer.find(x=>x.id===r.id) || r;
-      card.innerHTML = `
-        <label class="edit-label">Área</label>
-        <select class="edit-field" onchange="updateBuf(${r.id},'area',this.value)">
-          ${Object.keys(AREA_STYLE).map(a=>`<option value="${a}"${buf.area===a?' selected':''}>${a}</option>`).join('')}
-        </select>
-        <label class="edit-label">Título</label>
-        <input class="edit-field" type="text" value="${esc(buf.title)}" oninput="updateBuf(${r.id},'title',this.value)">
-        <label class="edit-label">Descripción</label>
-        <textarea class="edit-field" rows="2" oninput="updateBuf(${r.id},'desc',this.value)">${esc(buf.desc)}</textarea>
-        <label class="edit-label">Link de Google Drive</label>
-        <input class="edit-field" type="url" value="${esc(buf.link)}" oninput="updateBuf(${r.id},'link',this.value)" placeholder="https://drive.google.com/...">
-        <button class="btn btn-danger" onclick="deleteCard(${r.id})">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-          Eliminar
-        </button>`;
-    }
-    grid.appendChild(card);
+// ── DRAG & DROP ──
+function setupDrag(){
+  document.querySelectorAll('.report-card.edit-mode').forEach(card=>{
+    card.addEventListener('dragstart', e=>{
+      dragSrcId = parseInt(card.dataset.id);
+      card.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    card.addEventListener('dragend', ()=>{
+      card.classList.remove('dragging');
+      document.querySelectorAll('.drag-over').forEach(c=>c.classList.remove('drag-over'));
+    });
+    card.addEventListener('dragover', e=>{
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      card.classList.add('drag-over');
+    });
+    card.addEventListener('dragleave', ()=> card.classList.remove('drag-over'));
+    card.addEventListener('drop', e=>{
+      e.preventDefault();
+      card.classList.remove('drag-over');
+      const targetId = parseInt(card.dataset.id);
+      if(dragSrcId && dragSrcId !== targetId){
+        const srcIdx = reports.findIndex(r=>r.id===dragSrcId);
+        const tgtIdx = reports.findIndex(r=>r.id===targetId);
+        if(srcIdx!==-1 && tgtIdx!==-1){
+          const [moved] = reports.splice(srcIdx,1);
+          reports.splice(tgtIdx,0,moved);
+          // sincronizar buffer
+          const bufSrc = editBuffer.findIndex(x=>x.id===dragSrcId);
+          const bufTgt = editBuffer.findIndex(x=>x.id===targetId);
+          if(bufSrc!==-1 && bufTgt!==-1){
+            const [mb] = editBuffer.splice(bufSrc,1);
+            editBuffer.splice(bufTgt,0,mb);
+          }
+          renderAll();
+          showToast('Orden actualizado');
+        }
+      }
+    });
   });
-
-  if(editMode){
-    const ph = document.createElement('div');
-    ph.className = 'add-placeholder';
-    ph.onclick = openAddModal;
-    ph.innerHTML = `<div class="add-plus">+</div><span>Agregar reporte</span>`;
-    grid.appendChild(ph);
-  }
 }
 
 function updateBuf(id,field,val){
@@ -818,6 +506,7 @@ function updateBuf(id,field,val){
   e[field]=val;
 }
 
+// ── CONTRASEÑA ──
 function openPasswordModal(){
   document.getElementById('input-password').value='';
   document.getElementById('password-error').classList.remove('visible');
@@ -843,9 +532,10 @@ function startEdit(){
   document.getElementById('btn-add').style.display='';
   document.getElementById('edit-banner').classList.add('visible');
   document.getElementById('download-banner').classList.remove('visible');
-  renderCards();
+  renderAll();
 }
 
+// ── GUARDAR Y DESCARGAR ──
 function saveChanges(){
   editBuffer.forEach(buf=>{
     const idx=reports.findIndex(r=>r.id===buf.id);
@@ -861,24 +551,22 @@ function saveChanges(){
 
   let src = '<!DOCTYPE html>' + document.documentElement.outerHTML;
 
-  // Forzar vista limpia en el HTML descargado
-  src = src.replace('class="banner banner-edit visible"', 'class="banner banner-edit"');
-  src = src.replace('class="banner banner-download"', 'class="banner banner-download"');
-  // Normalizar todos los estilos inline de los 4 botones del header
-  src = src.replace(/(<button[^>]+id="btn-edit"[^>]*?) style="[^"]*"/g, '$1');
-  src = src.replace(/(<button[^>]+id="btn-save"[^>]*?) style="[^"]*"/g, '$1 style="display:none;"');
-  src = src.replace(/(<button[^>]+id="btn-cancel"[^>]*?) style="[^"]*"/g, '$1 style="display:none;"');
-  src = src.replace(/(<button[^>]+id="btn-add"[^>]*?) style="[^"]*"/g, '$1 style="display:none;"');
+  src = src.replace('class="banner banner-edit visible"','class="banner banner-edit"');
+  src = src.replace('class="banner banner-download visible"','class="banner banner-download"');
+  src = src.replace(/(<button[^>]+id="btn-edit"[^>]*?) style="[^"]*"/g,'$1');
+  src = src.replace(/(<button[^>]+id="btn-save"[^>]*?) style="[^"]*"/g,'$1 style="display:none;"');
+  src = src.replace(/(<button[^>]+id="btn-cancel"[^>]*?) style="[^"]*"/g,'$1 style="display:none;"');
+  src = src.replace(/(<button[^>]+id="btn-add"[^>]*?) style="[^"]*"/g,'$1 style="display:none;"');
 
-  const i1 = src.indexOf(marker1);
-  const i2 = src.indexOf(marker2, i1);
+  const i1=src.indexOf(marker1);
+  const i2=src.indexOf(marker2,i1);
   if(i1!==-1 && i2>i1){
-    src = src.slice(0,i1) + marker1 + '\n' + dataBlock + '\n]' + src.slice(i2);
+    src=src.slice(0,i1)+marker1+'\n'+dataBlock+'\n]'+src.slice(i2);
   }
 
-  const blob = new Blob([src],{type:'text/html;charset=utf-8'});
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
+  const blob=new Blob([src],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
   a.href=url; a.download='index.html'; a.click();
   URL.revokeObjectURL(url);
 
@@ -894,48 +582,51 @@ function exitEdit(){
   document.getElementById('btn-cancel').style.display='none';
   document.getElementById('btn-add').style.display='none';
   document.getElementById('edit-banner').classList.remove('visible');
-  renderCards();
+  renderAll();
 }
 
 function deleteCard(id){
   if(!confirm('¿Eliminar este reporte?')) return;
   reports=reports.filter(r=>r.id!==id);
   editBuffer=editBuffer.filter(x=>x.id!==id);
-  renderCards();
+  renderAll();
 }
 
 function filterArea(btn,area){
   currentFilter=area;
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  renderCards();
+  renderAll();
 }
 
-function openAddModal(){
+function openAddModal(preArea){
   ['new-title','new-desc','new-link'].forEach(id=>document.getElementById(id).value='');
+  if(preArea) document.getElementById('new-area').value=preArea;
   document.getElementById('modal-add').classList.add('open');
   setTimeout(()=>document.getElementById('new-title').focus(),120);
 }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); }
 function confirmAdd(){
   const title=document.getElementById('new-title').value.trim();
-  const link =document.getElementById('new-link').value.trim();
+  const link=document.getElementById('new-link').value.trim();
   if(!title){alert('Por favor ingresa un título.');return;}
-  if(!link) {alert('Por favor ingresa el link de Drive.');return;}
+  if(!link){alert('Por favor ingresa el link de Drive.');return;}
   const newR={id:Date.now(),area:document.getElementById('new-area').value,title,desc:document.getElementById('new-desc').value.trim(),link};
   reports.push(newR); editBuffer.push({...newR});
-  closeModal('modal-add'); renderCards();
+  closeModal('modal-add'); renderAll();
 }
 
 document.querySelectorAll('.modal-overlay').forEach(m=>{
   m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');});
 });
 
-renderCards();
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+renderAll();
 </script>
-
-
-
-
-
-</body></html>
+</body>
+</html>
