@@ -321,7 +321,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <span class="header-tag">DAAR</span>
   </div>
   <div style="display:flex;gap:8px;">
-    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()" style="">
+    <button class="btn btn-outline" id="btn-edit" onclick="openPasswordModal()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
       Editar
     </button>
@@ -370,8 +370,9 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
   <!-- Filtros -->
   <div class="filter-row">
     <div class="filters">
+      <button class="filter-btn active" onclick="filterArea(this,'all')">Todos</button>
       <button class="filter-btn" onclick="filterArea(this,'Pregrado')">Pregrado</button>
-      <button class="filter-btn active" onclick="filterArea(this,'Posgrado')">Posgrado</button>
+      <button class="filter-btn" onclick="filterArea(this,'Posgrado')">Posgrado</button>
       <button class="filter-btn" onclick="filterArea(this,'Idiomas')">Idiomas</button>
     </div>
     <span class="count-label" id="count-label">5 procesos</span>
@@ -578,10 +579,10 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
       <div class="process-title-row">
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;">Posgrado</span>
         <span class="area-badge" style="display:inline-flex;background:#E0D8F8;color:#3A1F8A;font-size:10px;font-weight:600;letter-spacing:0.5px;padding:3px 10px;border-radius:99px;opacity:0.75;">Maestrías</span>
-        <span class="resource-count-badge">8 recursos</span>
+        <span class="resource-count-badge">13 recursos</span>
       </div>
       <div class="process-title">Sustentaciones</div>
-      <div class="process-desc">Programación de sustentaciones y seguimiento de firma de actas para maestrías.</div>
+      <div class="process-desc">Gestión, programación y registro de sustentaciones. Seguimiento de firma de actas de sustentación.</div>
     </div>
     <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
   </div><div class="process-body"><div class="process-body-inner"><div class="resource-type-block">
@@ -662,6 +663,46 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
                 <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </div>
             
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://www.gob.pe/8283-calcular-dias-habiles-o-calendario" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>Calcular días hábiles o calendario</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://enlinea.sunedu.gob.pe/" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>SUNEDU en línea</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://orcid.org/" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>ORCID - Búsqueda de registro</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://docs.google.com/spreadsheets/d/1HvWkhgeeTu1Un3eUuig8rPgPidvcsStsG7soP231ccA/edit?gid=2025678620#gid=2025678620" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>Registro de cumplimiento de la encuesta de evaluación de la asesoría</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
+              <div class="resource-item">
+                <a class="resource-item-link" href="https://docs.google.com/spreadsheets/d/1_86Qno5SFChZSQxPLfax7h5yrp9JFYjQ/edit?gid=1711404727#gid=1711404727" target="_blank" rel="noopener">
+                  <span class="resource-icon">🔗</span>
+                  <span>Registro de seguimiento de coordinaciones con docentes</span>
+                </a>
+                <svg class="resource-open-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </div>
+            
           </div>
         </div></div></div></div><div class="process-card" style="animation-delay: 120ms;"><div class="process-head">
     <div class="process-head-left">
@@ -693,7 +734,7 @@ textarea.edit-field { resize: vertical; line-height: 1.55; }
     <div class="modal-title">🔒 Acceso de edición</div>
     <label class="edit-label">Contraseña</label>
     <input class="edit-field" id="input-password" type="password" placeholder="Ingresa tu contraseña" onkeydown="if(event.key==='Enter') checkPassword()">
-    <div class="modal-error" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
+    <div class="modal-error visible" id="password-error">Contraseña incorrecta. Inténtalo de nuevo.</div>
     <div class="modal-actions">
       <button class="btn btn-light" onclick="closeModal('modal-password')">Cancelar</button>
       <button class="btn" style="background:var(--navy);color:#fff;border-color:var(--navy);" onclick="checkPassword()">Ingresar</button>
@@ -762,7 +803,7 @@ let processes = [
     { type:'plataforma', title:'Esignabox — Validador de documentos', link:'https://www.esignabox.com/?com=esignabox&cc_verifier' },
     { type:'plataforma', title:'Portal del Empleado', link:'https://universidadpacifico.administracionelectronica.net/' }
   ]},
-  { id:3, area:'Posgrado', subarea:'Maestrías', title:'Sustentaciones', desc:'Programación de sustentaciones y seguimiento de firma de actas para maestrías.', open:false, resources:[
+  { id:3, area:'Posgrado', subarea:'Maestrías', title:'Sustentaciones', desc:'Gestión, programación y registro de sustentaciones. Seguimiento de firma de actas de sustentación.', open:false, resources:[
     { type:'manual', title:'Manual — Proceso de Sustentaciones', link:'https://drive.google.com' },
     { type:'plataforma', title:'Ellucian (Aplicativo local)', link:'' },
     { type:'otro', title:'Repositorio - Maestrías EGP', link:'https://drive.google.com/drive/folders/1amhl0eCsZpqTRWEOShAW6PkUwz4MiMB_?usp=drive_link' },
@@ -770,7 +811,12 @@ let processes = [
     { type:'otro', title:'Normativas PBS y EGP', link:'https://campusvirtual.up.edu.pe/documentos/escuela_postgrado.aspx' },
     { type:'otro', title:'1. Cuadro control de alumnos para Sustentar', link:'https://docs.google.com/spreadsheets/d/17rIs4JHJwALjbEi6CSnyxG4xKZdKuOFLS-wrAOITgo8/edit?gid=156450238#gid=156450238' },
     { type:'otro', title:'2. Sustentaciones programadas y control de firmas', link:'https://docs.google.com/spreadsheets/d/11-Lz4kjS21cACKXl5Gk57JEQ9RkKY91dWeT3x6cWssw/edit?gid=395851873#gid=395851873' },
-    { type:'otro', title:'3. Control Sala ZOOM - Sustentaciones', link:'https://docs.google.com/spreadsheets/d/1MZb8vdmgnTVkEMNBd6viPbGG3d2mEQYs/edit?gid=352384922#gid=352384922' }
+    { type:'otro', title:'3. Control Sala ZOOM - Sustentaciones', link:'https://docs.google.com/spreadsheets/d/1MZb8vdmgnTVkEMNBd6viPbGG3d2mEQYs/edit?gid=352384922#gid=352384922' },
+    { type:'otro', title:'Calcular días hábiles o calendario', link:'https://www.gob.pe/8283-calcular-dias-habiles-o-calendario' },
+    { type:'otro', title:'SUNEDU en línea', link:'https://enlinea.sunedu.gob.pe/' },
+    { type:'otro', title:'ORCID - Búsqueda de registro', link:'https://orcid.org/' },
+    { type:'otro', title:'Registro de cumplimiento de la encuesta de evaluación de la asesoría', link:'https://docs.google.com/spreadsheets/d/1HvWkhgeeTu1Un3eUuig8rPgPidvcsStsG7soP231ccA/edit?gid=2025678620#gid=2025678620' },
+    { type:'otro', title:'Registro de seguimiento de coordinaciones con docentes', link:'https://docs.google.com/spreadsheets/d/1_86Qno5SFChZSQxPLfax7h5yrp9JFYjQ/edit?gid=1711404727#gid=1711404727' }
   ]},
   { id:1782783051896, area:'Posgrado', subarea:'Programas y Cursos', title:'Matrícula', desc:'Proceso de matrícula regular, recurrente y extraordinaria de programas y cursos', open:false, resources:[
     { type:'manual', title:'Manual proceso de matrícula', link:'https://drive.google.com/file/d/1Ysx364fmtXEMSb3KZznW5PWe0lKcw9lE/view?usp=drive_link' },
@@ -798,14 +844,14 @@ let processes = [
 // ══ FIN DATOS ══
 
 let editMode = false;
-let currentFilter = 'Pregrado';
+let currentFilter = 'all';
 let editBuffer = [];
 let resourceIdCounter = 1000;
 
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function escJs(s){ return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\r?\n/g,'\\n'); }
 function getSource(){ return editMode ? editBuffer : processes; }
-function getFiltered(){ const src=getSource(); return src.filter(p=>p.area===currentFilter); }
+function getFiltered(){ const src=getSource(); return currentFilter==='all' ? src : src.filter(p=>p.area===currentFilter); }
 function getSubareas(area){ return SUBAREAS[area] || null; }
 
 function renderGroups(){
@@ -816,34 +862,41 @@ function renderGroups(){
   document.getElementById('footer-meta').textContent = totalN + ' proceso' + (totalN!==1?'s':'') + ' · DAAR — Universidad del Pacífico';
   container.innerHTML = '';
 
-  const area = currentFilter;
-  const items = filtered.filter(p=>p.area===area);
-  const subareas = getSubareas(area);
+  const areasToRender = currentFilter === 'all' ? AREAS : [currentFilter];
   let cardIndex = 0;
+  let anyContent = false;
 
-  if(items.length===0 && !editMode){
-    container.innerHTML = '<div class="empty-state">No hay procesos registrados en esta vista todavía.</div>';
-    return;
-  }
+  areasToRender.forEach(area=>{
+    const items = filtered.filter(p=>p.area===area);
+    if(items.length===0 && !editMode) return;
+    anyContent = true;
+    const subareas = getSubareas(area);
 
-  if(!subareas){
-    // Subunidad sin sub-grupos: un solo bloque, comportamiento original
-    container.appendChild(renderAreaBlock(area, null, items, cardIndex));
-    return;
-  }
+    if(!subareas){
+      const block = renderAreaBlock(area, null, items, cardIndex);
+      cardIndex += items.length;
+      container.appendChild(block);
+      return;
+    }
 
-  // Subunidad con sub-grupos: un bloque por cada subarea, más uno para "sin sub-grupo asignado" si aplica
-  subareas.forEach(sub=>{
-    const subItems = items.filter(p=>p.subarea===sub);
-    if(subItems.length===0 && !editMode) return;
-    const block = renderAreaBlock(area, sub, subItems, cardIndex);
-    cardIndex += subItems.length;
-    container.appendChild(block);
+    // Subunidad con sub-grupos: encabezado de área + bloques de subarea
+    subareas.forEach(sub=>{
+      const subItems = items.filter(p=>p.subarea===sub);
+      if(subItems.length===0 && !editMode) return;
+      const block = renderAreaBlock(area, sub, subItems, cardIndex);
+      cardIndex += subItems.length;
+      container.appendChild(block);
+    });
+
+    const unassigned = items.filter(p=>!subareas.includes(p.subarea));
+    if(unassigned.length>0){
+      container.appendChild(renderAreaBlock(area, null, unassigned, cardIndex));
+      cardIndex += unassigned.length;
+    }
   });
 
-  const unassigned = items.filter(p=>!subareas.includes(p.subarea));
-  if(unassigned.length>0){
-    container.appendChild(renderAreaBlock(area, null, unassigned, cardIndex));
+  if(!anyContent && !editMode){
+    container.innerHTML = '<div class="empty-state">No hay procesos registrados en esta vista todavía.</div>';
   }
 }
 
@@ -1129,7 +1182,7 @@ function filterArea(btn, area){
 
 let pendingAddArea = 'Pregrado';
 function openAddProcessModal(area, subarea){
-  pendingAddArea = area || currentFilter;
+  pendingAddArea = area || (currentFilter !== 'all' ? currentFilter : 'Pregrado');
   document.getElementById('new-process-area').value = pendingAddArea;
   document.getElementById('new-process-title').value='';
   document.getElementById('new-process-desc').value='';
@@ -1180,6 +1233,7 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{
 ensureRids(processes);
 renderGroups();
 </script>
+
 
 
 
